@@ -7,8 +7,7 @@ package process_parts
  * @author Sobolev
  *
  */
-class Link(target: Option[Brick], direction: Boolean) extends ProcElems {
-  def invoke:Unit = Unit
+class Link(target: Option[Brick], to: Option[Brick]) {
   def getTarget: Option[Brick] = this.target
   Link.links = Link.links :+ this
 }
