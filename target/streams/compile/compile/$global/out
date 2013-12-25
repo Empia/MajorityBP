@@ -1,52 +1,35 @@
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mInitial source changes: [0m
 [0m[[0mdebug[0m] [0m	removed:Set()[0m
-[0m[[0mdebug[0m] [0m	added: Set(C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\src\main\scala\HelloWorld.scala)[0m
+[0m[[0mdebug[0m] [0m	added: Set(/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Link.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/ProcElem.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala, /Users/stan/Documents/bp_testing/src/main/scala/HelloWorld.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Block.scala, /Users/stan/Documents/bp_testing/src/main/scala/Process.scala)[0m
 [0m[[0mdebug[0m] [0m	modified: Set()[0m
 [0m[[0mdebug[0m] [0mRemoved products: Set()[0m
 [0m[[0mdebug[0m] [0mModified external sources: Set()[0m
 [0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\src\main\scala\HelloWorld.scala)[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Link.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/ProcElem.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala, /Users/stan/Documents/bp_testing/src/main/scala/HelloWorld.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Block.scala, /Users/stan/Documents/bp_testing/src/main/scala/Process.scala)[0m
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m	product: Set()[0m
 [0m[[0mdebug[0m] [0m	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\src\main\scala\HelloWorld.scala)[0m
-[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
-[0m[[0minfo[0m] [0mCompiling 1 Scala source to C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\target\scala-2.10\classes...[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Link.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/ProcElem.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala, /Users/stan/Documents/bp_testing/src/main/scala/HelloWorld.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Block.scala, /Users/stan/Documents/bp_testing/src/main/scala/Process.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 6 sources: invalidated sources (6) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 6 Scala sources to /Users/stan/Documents/bp_testing/target/scala-2.10/classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.2[0m
-[0m[[0mdebug[0m] [0mPlain interface to Scala compiler 2.10.2  with arguments: [0m
-[0m[[0mdebug[0m] [0m	-nowarn[0m
-[0m[[0mdebug[0m] [0m	-d[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f6e77a43[0m
-[0m[[0mdebug[0m] [0m	-bootclasspath[0m
-[0m[[0mdebug[0m] [0m	C:\Program Files\Java\jdk1.7.0_40\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_40\jre\classes;C:\Users\Sobolev\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.2.jar[0m
-[0m[[0mdebug[0m] [0m	-classpath[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\.sbt\boot\scala-2.10.3\org.scala-sbt\sbt\0.13.1\xsbti\interface-0.13.1.jar;C:\Users\Sobolev\.sbt\boot\scala-2.10.3\org.scala-sbt\sbt\0.13.1\compiler-interface-src\compiler-interface-src-0.13.1.jar;C:\Users\Sobolev\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.10.2.jar;C:\Users\Sobolev\.ivy2\cache\org.scala-lang\scala-reflect\jars\scala-reflect-2.10.2.jar;C:\Users\Sobolev\.ivy2\cache\org.scala-lang\jline\jars\jline-2.10.2.jar;C:\Users\Sobolev\.ivy2\cache\org.fusesource.jansi\jansi\jars\jansi-1.4.jar[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\API.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Analyzer.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Command.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Compat.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\CompilerInterface.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\ConsoleInterface.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\DelegatingReporter.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Dependency.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\ExtractAPI.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\LocateClassFile.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Log.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\Message.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\AppData\Local\Temp\sbt_f65252ff\xsbt\ScaladocInterface.scala[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.2[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 56257c, interfacing (CompilerInterface) with Scala compiler version 2.10.2[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 5dfa490, interfacing (CompilerInterface) with Scala compiler version 2.10.2[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
-[0m[[0mdebug[0m] [0m	C:\Program Files\Java\jdk1.7.0_40\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_40\jre\classes;C:\Users\Sobolev\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.2.jar[0m
+[0m[[0mdebug[0m] [0m	/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar:/Users/stan/.sbt/boot/scala-2.10.2/lib/scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\target\scala-2.10\classes[0m
-[0m[[0mdebug[0m] [0mScala compilation took 21.272119973 s[0m
-[0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set(C:\Users\Sobolev\Desktop\scala\eclipse\workspace\bp_testing\src\main\scala\HelloWorld.scala)[0m
-[0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set()[0m
+[0m[[0mdebug[0m] [0m	/Users/stan/Documents/bp_testing/target/scala-2.10/classes[0m
+[0m[[33mwarn[0m] [0m/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala:21: fruitless type test: a value of type process_parts.Link cannot also be a Option[process_parts.Brick][0m
+[0m[[33mwarn[0m] [0m    def linked_to = Link.links.collect { case brick: Option[Brick] => brick }[0m
+[0m[[33mwarn[0m] [0m                                                     ^[0m
+[0m[[33mwarn[0m] [0mone warning found[0m
+[0m[[0mdebug[0m] [0mScala compilation took 5.066048 s[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set(/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Link.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/ProcElem.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala, /Users/stan/Documents/bp_testing/src/main/scala/HelloWorld.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Block.scala, /Users/stan/Documents/bp_testing/src/main/scala/Process.scala)[0m
+[0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set(/Users/stan/Documents/bp_testing/src/main/scala/process_parts/Link.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Brick.scala, /Users/stan/Documents/bp_testing/src/main/scala/HelloWorld.scala, /Users/stan/Documents/bp_testing/src/main/scala/process_parts/Block.scala, /Users/stan/Documents/bp_testing/src/main/scala/Process.scala)[0m
 [0m[[0mdebug[0m] [0mNew invalidations:[0m
 [0m[[0mdebug[0m] [0m	Set()[0m
 [0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m

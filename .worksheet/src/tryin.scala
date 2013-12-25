@@ -58,8 +58,8 @@ p.state;System.out.println("""res2: Boolean = """ + $show(res$2));$skip(35);
  val r1 = proc.add_brick(proc.brick_init("result"));System.out.println("""r1  : process_parts.Brick = """ + $show(r1 ));$skip(62); 
  val r2 = proc.add_brick(proc.brick_init("result"));System.out.println("""r2  : process_parts.Brick = """ + $show(r2 ));$skip(47); //.link_to
  
- val link = new Link(Option(r1), Option(r2));System.out.println("""link  : process_parts.Link = """ + $show(link ));$skip(42); val res$4 = 
- 
-Link.links.head.getTarget.get.getClass;System.out.println("""res4: Class[?0] = """ + $show(res$4))}
+ val link = new Link(Option(r1), Option(r2));System.out.println("""link  : process_parts.Link = """ + $show(link ));$skip(14); val res$4 = 
+ r1.linked_to;System.out.println("""res4: List[process_parts.Link with Option[process_parts.Brick]] = """ + $show(res$4));$skip(39); val res$5 = 
+Link.links.head.getTarget.get.getClass;System.out.println("""res5: Class[?0] = """ + $show(res$5))}
 
 }

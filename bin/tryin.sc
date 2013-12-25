@@ -53,7 +53,7 @@ p.state                                           //> res2: Boolean = true
   //val x: Foo[List]#t[Int] = List(1, 2)
   
  //Test bricks
- val proc = new Process(List("Stan", "Will"), "m")//> proc  : Process = Process@11803fb
+ val proc = new Process(List("Stan", "Will"), "m")//> proc  : Process = Process@15538e5
  // check links
  //proc.add_block("data", 16)
  //proc.add_block("data", 8)
@@ -69,8 +69,8 @@ p.state                                           //> res2: Boolean = true
  val r2 = proc.add_brick(proc.brick_init("result"))//.link_to
                                                   //> r2  : process_parts.Brick = Title: ()
  
- val link = new Link(Option(r1), Option(r2))      //> link  : process_parts.Link = process_parts.Link@b46c4c
- 
-Link.links.head.getTarget.get.getClass            //> res4: Class[?0] = class process_parts.Brick
+ val link = new Link(Option(r1), Option(r2))      //> link  : process_parts.Link = process_parts.Link@f4b65d
+ r1.linked_to                                     //> res4: List[process_parts.Link with Option[process_parts.Brick]] = List()
+Link.links.head.getTarget.get.getClass            //> res5: Class[?0] = class process_parts.Brick
 
 }
