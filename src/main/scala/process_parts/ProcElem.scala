@@ -1,4 +1,4 @@
-package process_parts
+package main.scala.process_parts
 
 /**
  * @author Sobolev
@@ -6,5 +6,4 @@ package process_parts
  */
 abstract class ProcElems {
   def invoke()
-
 }
