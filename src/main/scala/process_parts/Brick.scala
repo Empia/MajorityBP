@@ -4,27 +4,36 @@
  */
 
 package main.scala.process_parts
-
+import main.scala.InvokeTracer
 /**
  * @author Sobolev
  */
+    /**
+     * TODO Refactor that constructor to traits
+     */
 class Brick(br_type: String, mean: Unit, value: Unit, in: Unit, out: Unit) extends ProcElems {
 
-    override def toString = s"Title: $mean"
+    override def toString = s"Brick: $mean"
     def invoke {
-    println("invoked brick")
-  }
-    def linked_to = BLink.links.collect { case brick: Option[Brick] => brick }
-   // def link_from:Link = new Link(Option(this), true)
-   // def link_to:Link   = new Link(Option(this), false)
+     InvokeTracer.runner.get.logger.log("invoked brick")
+    }
+    def linked_to = BLinkDispatch(this)
+
 }
-class Result(obj: Any) extends ProcElems {
+class Result extends ProcElems {
+  lazy val obj = BLinkDispatch.from(this)
   def invoke() {
-  println(s"result $obj")
+     InvokeTracer.runner.get.logger.log("Result:" + obj)
   }
+  override def toString = s"Result $obj"
 }
 
+class Note(note: String) extends ProcElems {
+  def invoke {
+    println(s"boom $note")
+  }
+  override def toString = s"'$note'"
+}
 
 class Checker {}
-class Confirm {}
-class Condition {}
+

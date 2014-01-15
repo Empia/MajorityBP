@@ -1,51 +1,160 @@
- /**
-  * 
-  */
 package main.scala
 import main.scala.process_parts._
+import scala.collection.mutable._
+
+class BProcess(resource: List[String]) {
+/**
+ *  State of process
+ */
+  var state = true
+  var step = 0
+  var status = "Stop"
+  var variety:ListBuffer[ProcElems] = ListBuffer()
+  val logger = new BPLogger
+/** 
+ *  Process collection methods
+ */
+  def blk = variety.collect { case block: Block => block }
+  def rsl = variety.collect { case brick: Result => brick }
+  def chk = variety.collect { case brick: Brick => brick }
+  def cns = variety.collect { case const: Constant[_] => const }
+  
 
 /**
- * @author Sobolev
- *
+ * Push elements to process
  */
-class BProcess(resource: List[String], scope: String) {
-  
-  type BlockType = String
-  
-  var state = true
-  //var blocks = Seq()
-  /** 
-   *  Process methods
-   *
-  def blocks = ???
-  def bricks = ???
-  def elements = ???
-  def bprocesses = ???
-  */
-
-  //def getBlocks = this.blocks
-  
-  def starting(f: => Any)= {
-    println(">> f3")
-    var blocks = f
-    println("  got " + f.getClass)
-    println("  goth " + f)
-    println("  got " + f)
-    println("<< f3")
-   
+  def pushit(target: ListBuffer[ProcElems]) = {
+    variety = variety ++ target
   }
-  def getBlocks():Any = return blocks
-  def invoke() {
-    /**
-     * Check link after load object
-     * Set a process steps
-     * Brick retrive data from linked object
-     * After freeze invoke must start from lastest step of Process
-     *  def step = ???
-     *  def status = ???
-     */
-   // for( b <- blocks){
-   //      println( "Invoking the: " + b.invoke );
-   // } 
+  
+  def push(f: => ListBuffer[ProcElems]) = {
+    pushit(f)
+  }
+
+  def stop(b: ProcElems) = {
+    if (b.getClass.getSimpleName == "Stopper") {
+      state = false
+    }
+  }
+
+  def resume = {
+    state = true
+  }
+
+  def represent:String = {
+    if (variety.length > 0) {
+      var a = "\nProcess elements: \n\n***************\n"
+      for( b <- variety ){
+        a = a + b.toString + "\n" + "****************\n"
+      } 
+      a
+    } 
+    else { "Blank process" }
+  }
+
+}
+/**
+ * BPLogger
+ */
+class BPLogger {
+  type Result = String
+  var logs: ListBuffer[Result] = ListBuffer()
+  def log(result: Result) = { 
+   logs = logs :+ result
   }
 }
+
+/**
+ * Ivoking process
+ */
+object InvokeTracer {
+  /*
+   * Process instance
+   */
+  var runner:Option[BProcess] = None
+  /**
+   * Executor
+   */
+  def run_init(proc: BProcess) = {
+    for( b <- proc.variety){
+     if (proc.state) {    
+       if (isFront(b)) {  //FIX THAT!!!!!!!!!!!!!!!!!
+        // also add to run_from method
+         println( "Try invoking the: the: " + b );
+         b.invoke
+         println(proc.step)
+         proc.step = proc.step + 1;
+       }
+     }
+     else {
+       println(proc.step)
+       proc.status = "Paused"
+     }
+    }
+    
+    if (proc.state && proc.status != "Paused") {
+       proc.step = 0
+       proc.status = "Complete/Stop"
+    } 
+  }
+
+  def run_from(proc: BProcess) = {
+    proc.status = "Stop"
+    proc.resume
+
+    for( b <- (proc.variety.slice(proc.step, proc.variety.length+1)) ) {
+     if (proc.state) {    
+       println( "Try invoking the: " + b );
+       b.invoke
+
+       proc.step = proc.step + 1;
+     }
+     else {
+
+       proc.status = "Paused"
+     }
+    }
+    
+    if (proc.state && proc.status != "Paused") {
+       proc.step = 0
+       proc.status = "Complete/Stop"
+    } 
+  }
+  def run_proc(proc: BProcess) = {
+    runner = Option(proc)
+    if (proc.step > 0) {
+      run_from(proc)
+    }
+    else {
+      run_init(proc)
+    }
+  }
+  /**
+  ** Dimension 
+  **/
+  def isFront(b: ProcElems):Boolean = {
+    val x = BLinkDispatch.from(b)
+    val y = x match {
+      case None => None
+      case _ => x.get.getClass.getSimpleName
+    }
+    y != "Dimension"
+  }
+
+  def run_dim(dim: Dimension, proc: BProcess) {
+    for( b <- dim.container ) {
+     if (proc.state) {    
+       println( "Invoking the: " + b );
+       b.invoke
+       println(proc.step)
+       proc.step = proc.step + 1;
+     }
+     else {
+       println(proc.step)
+       proc.status = "Paused"
+     }
+    }
+  }
+
+}
+

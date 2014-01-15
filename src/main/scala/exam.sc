@@ -1,6 +1,7 @@
 import util.Random
 import main.scala._
 import main.scala.process_parts._
+import scala.collection.mutable._
 /*****************************$$%$%#%$#%#%#$%#
 *** Link val to arg
 **  Implement main trait
@@ -12,43 +13,31 @@ object exam {
 def rnd = Random.nextInt(12)
 /* Create process */
 val proc = new BProcess(List("Stan", "Will"), "m")
-// check links
-//proc.add_block("data", 16)
-//proc.add_block("data", 8)
-//proc.add_block("math", "+")
-//proc.add_brick("checker" 19)
-//proc.add_brick("result")
- 
- 
-  //def block_init(title:String):Block = new Block("ops", title, uni, true)
-  //def brick_init(title:String):Brick = new Brick("", Unit, Unit, Unit, Unit)
- //proc.add_brick(proc.brick_init("checker", 1+1, 2)).link_from
-   //proc.add_link()
-// val r1 = proc.add_brick(new Brick("", Unit, Unit, Unit, Unit))
-// val r2 = proc.add_brick(new Result("fff"))//.link_to
-//r2.invoke
 
- 
- //with Constant
- // Launch process elements
+
  proc.starting {
-   Seq
-   (
+ 
+ 
+   ListBuffer[ProcElems](
    new Constant(1001),
    new Brick("fff", Unit, Unit, Unit, Unit),
    new Brick("sss", Unit, Unit, Unit, Unit),
-   new Brick("sss", Unit, Unit, Unit, Unit),
-   new Brick("sss", Unit, Unit, Unit, Unit),
+   new Result,
+   new Stopper,
    new Brick("sss", Unit, Unit, Unit, Unit)
    )
  }
+            
+ new BLink(Option(proc.variety(0)), Option(proc.variety(3)))
+ new BLink(Option(proc.variety.last), Option(proc.variety.head))
+proc.rsl
+ //chk.last.linked_to
+BLink.links
 
-              
- proc.blocks
+InvokeTracer.run_proc(proc)
+
+proc.state
+proc.status
  
- 
- 
-// val link = new BLink(Option(r1), Option(r2))
-// r1.linked_to
 BLink.links.head.getTarget.get.getClass
 }
