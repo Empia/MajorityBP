@@ -1,0 +1,43 @@
+<div class="row">
+
+  <!--### The form for a new message ###-->
+  <div class="col-md-6">
+    <h4>Process list</h4>
+
+    <form name="form" novalidate>
+      <fieldset>
+        <div>
+          <textarea id="text-input" rows="3" placeholder="Enter your message ..."
+                    data-ng-model="message.text" required>
+          </textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary"
+                  data-ng-click="sendMessage()" data-ng-disabled="form.$invalid">
+            Gabble away
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <!--### The list of messages ###-->
+  <div class="col-md-6 messages">
+    <h4 data-ng-init="getMessages()">Process #{{}}</h4>
+    <div data-ng-repeat="msg in messages">
+        <div class="msg {{ msg.type.toLowerCase() }}">
+          {{ msg.type.toLowerCase() }}
+          <div class="username">{{ msg.title }}</div>
+          <div class="text">{{ msg.behave }}</div>
+          <input type="checkbox" ng-model="msg.value">
+          <div class="value">{{ msg.value }}</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary"
+                  data-ng-click="sendMessage()" data-ng-disabled="form.$invalid">
+            Invoke
+      </button>
+      <h5>Previous invoked:</h5>
+  </div>
+
+</div>

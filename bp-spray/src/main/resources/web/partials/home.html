@@ -1,0 +1,34 @@
+<div class="row">
+
+  <!--### The form for a new message ###-->
+  <div class="col-md-6">
+    <h4>Gabble away</h4>
+
+    <form name="form" novalidate>
+      <fieldset>
+        <div>
+          <textarea id="text-input" rows="3" placeholder="Enter your message ..."
+                    data-ng-model="message.text" required>
+          </textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary"
+                  data-ng-click="sendMessage()" data-ng-disabled="form.$invalid">
+            Gabble away
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <!--### The list of messages ###-->
+  <div class="col-md-6 messages">
+    <h4 data-ng-init="getMessages()">Gibble gabble</h4>
+
+    <div data-ng-repeat="msg in messages">
+      <div class="username">{{ msg.username }}</div>
+      <div class="text">{{ msg.text }}</div>
+    </div>
+  </div>
+
+</div>
