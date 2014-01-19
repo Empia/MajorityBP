@@ -1,9 +1,8 @@
 package service
 
-import akka.actor.{Props, ActorSystem}
+import akka.actor.{ Props, ActorSystem }
 import akka.io.IO
 import spray.can.Http
-
 
 /**
  * Main class for the service actor and can be stopped by hitting the `"e"` key.
@@ -12,8 +11,8 @@ object Boot extends App {
 
   private def waitForExit() = {
     def waitEOF(): Unit = Console.readLine() match {
-      case "exit" => system.shutdown()
-      case _ => waitEOF()
+      case "exit" ⇒ system.shutdown()
+      case _      ⇒ waitEOF()
     }
     waitEOF()
   }

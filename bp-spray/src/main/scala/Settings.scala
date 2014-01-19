@@ -19,13 +19,13 @@ object Settings extends ExtensionKey[Settings]
 class Settings(system: ExtendedActorSystem) extends Extension {
 
   val hostname: String =
-    system.settings.config getString "bp_core.hostname"
+    system.settings.config getString "spray_service.hostname"
 
   val port: Int =
-    system.settings.config getInt "bp_core.port"
+    system.settings.config getInt "spray_service.port"
 
   val timeout: FiniteDuration =
-    Duration(system.settings.config getMilliseconds "bp_core.timeout", MILLISECONDS)
+    Duration(system.settings.config getMilliseconds "spray_service.timeout", MILLISECONDS)
 }
 
 import scala.concurrent.{ Future, Promise }
