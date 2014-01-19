@@ -56,3 +56,5 @@ projects
 project bp-spray
 clear
 project bp-spray
+clean
+project bp-core
