@@ -1,10 +1,63 @@
-* Test cases for process 
-* Beautiful output
-* Context/subject/deriv..
-* MM for it
 * Clean original MM
+* MM for everything{New blocks}
+* Process & Context checker before invoke -> InvokeValidator
+* Traits(common, params, arg, params&arg)
+* Arg dispatcher
+* Categories of proc elems
+* Chain Context
+* Invoke block call by Input Block with true bool
+* Make one interface for context & process elements
+* Tests
 
-* Slick integration
-* Neo4J integration
+/
+  * API End-Point
+  * DB Scheme
+  * Invoke card
+  * Angular app
+  * Slick integration
 
-.....
+
+/Alpha/
+  * Resources
+  * Behav Resources
+  * ResAct blocks
+  * Behav model methods and elements
+  * Neo4J integration?
+  * Templates BP, ctx, sbj?
+  * Datablock?
+  * Collab & sharing?
+  * Graph.js
+  * Merchant?
+  * scope ctx, bp ?
+  * Key/value data store
+  * Block register / Elem -> Block conversion
+  * Sandbox for testing external Blocks
+____
+/Final/
+  * Service
+  * RPC
+  * Regressor-core
+  
+/Hospital/
+  1/ Telephone vizov vracha na dom(original from contact) in Telephone lists с 8 до 14 СБ-ВС выходные
+  2/ Poliklinika №2 Адрес Трудовая 25а
+  3/ Детская неотложная помощь круглосуточно - 722-78-71
+  4/ Скорая мед. помощь круглосуточно - тел 03
+  5/ Режим работы с 8 до 18
+  6/ Станионар Трудовая 28 
+  7/ Режим работы круглосуточно
+  8/ Стол справок, телефон, с 7 30 до 19 00
+  9/ Посещение больных с 16 30 до 19 00
+  10/ Глав врач убрать заменить на Лаборатория
+  11/ Станионар, адрес Поликлиника №1 улица 50 лет вклсм 3
+  12/ Главная режим работы муздгкб №9 сменить
+  13/ In phone Стац. Пол. 1 Отделение востановительного лечения, Улица Сталеваров 39 Режим работы с 8 до 16 СБ ВС Выходные дни 735 14 58
+  14/ Здрав. пункт П. Аэропорт дом 13
+  15/ Убрать дату в администрации
+  16/ Соняк тел. 721-64-11
+  17/ Тевс тел. 721-64-64
+  18/ Каширин 721-04-11
+  19/ В новостях на главной открылся кабинет стамотологов
+  20/ На главной запись на прием к врачу
+  21/ Новости вид отредактировать кубики
+  22/ Из администрации убрать фотку глав врача

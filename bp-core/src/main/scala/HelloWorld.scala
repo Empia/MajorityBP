@@ -4,7 +4,7 @@ import main.scala.process_parts._
 import main.scala.utils._
 
 object Main extends App {
-  Tryin1.apply
+  Tryin1.context
 
   //  println(Calculator("5 * 10"))
   //  println(Calculator("5 * 10").getClass)
@@ -15,6 +15,7 @@ object Condtryin {
 object Tryin1 {
   import util.Random
   import scala.collection.mutable._
+  import main.scala.MM._
 
   def apply {
     val proc = new BProcess(List("Stan", "Will"))
@@ -69,37 +70,25 @@ object Tryin1 {
     println(BLinkDispatch.to(proc.variety(6)).map(_.get).to[ListBuffer])
     println(InvokeTracer.isFront(proc.variety(9)))
   }
-
-  val proc = new BProcess(List("Stan", "Will"))
-  proc.push {
-    ListBuffer[ProcElems](
+  def context {
+    val Context = new StructContext("Accounting")
+    Context.subject = List(new Subject("Make accounting"))
+    Context.subject.head.subj_elems = ListBuffer(Left(new BProcess(List("Stan", "Will"))))
+    val proc = Context.subject.head.subj_elems.head.left.get
+    proc.variety = (ListBuffer[ProcElems](
       new Note("Test note"),
       new Constant[Int](1001),
       new Brick("fff", Unit, Unit, Unit, Unit),
       new Brick("sss", Unit, Unit, Unit, Unit),
-      new Result,
-      // is front? not evaled
-
-      new Condition(true),
-      new Dimension,
-      new Dimension,
-      new Constant[Int](42),
-      new Note("Condition note"),
       new Stopper,
-      new Brick("sss", Unit, Unit, Unit, Unit))
+      new Brick("sss", Unit, Unit, Unit, Unit)))
 
+    // Proc Links
+    // Invoke
+    // Process reports
+    println(Context.represent)
+    println("Process: ")
+    println(proc.represent)
   }
-  // Const -> Result
-  val link_check = new BLink(Option(proc.variety(1)), Option(proc.variety(4)))
-  // ???                                                 
-  new BLink(Option(proc.variety.last), Option(proc.variety.head))
-  // Condition dims
-  new BLink(Option(proc.variety(5)), Option(proc.variety(6)))
-  // Block to Dims
-  new BLink(Option(proc.variety(6)), Option(proc.variety(9)))
-  new BLink(Option(proc.variety(6)), Option(proc.variety(10)))
 
-  InvokeTracer.run_proc(proc)
-
-  def logs = proc.logger.logs
 }

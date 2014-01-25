@@ -9,30 +9,41 @@ import spray.httpx.SprayJsonSupport
 import spray.routing.{ HttpService, HttpServiceActor, Route }
 import spray.json.DefaultJsonProtocol
 
-case class Message(username: String, test: List[Int])
-
-object MessageJsonProtocol extends DefaultJsonProtocol {
-  implicit val format = jsonFormat2(Message)
+case class MessagesList(title: String, container: List[Message])
+case class Message(process: String, test: List[Int], typeof: String = getClass.getSimpleName) {
+  // val typeof = getClass.toString
 }
 
+object MessageJsonProtocol extends DefaultJsonProtocol {
+  implicit val format = jsonFormat3(Message)
+  implicit val msgformat = jsonFormat2(MessagesList)
+}
+//object MessagesListJsonProtocol extends DefaultJsonProtocol {
+//  implicit val format = jsonFormat2(MessagesList.apply)
+//}
+//
 /**
  * Spray service
  *   - a REST under `spray-json-message/`
  *   - a HTML under `spray-html/`
  */
-case class Tester(name: String)
 
 trait SprayService extends HttpService {
 
-  import MessageJsonProtocol._
+  //import MessagesListJsonProtocol._
   import spray.httpx.SprayJsonSupport._
-
+  import DefaultJsonProtocol._
+  import spray.json._
+  import spray.httpx.SprayJsonSupport._
+  import MessageJsonProtocol._
   def adRoute: Route =
     path("checkin") {
       get {
         complete {
-          Message("jacke", List(1, 2, 3))
-
+          main.scala.Tryin1.context
+          MessagesList("fff", List(
+            Message("Service managers", List(1, 2, 3, 4)), Message("Service 1", List(1, 2, 3, 4)))) //.toJson
+          //List(1, 2, 3)
           //Message("Hello mama!")
         }
       }
@@ -46,7 +57,12 @@ trait SprayService extends HttpService {
           get {
             complete("checker" + id)
           }
-        }
+        } ~
+          path("logs") {
+            get {
+              complete("logs" + id)
+            }
+          }
       } ~
       pathPrefix("api") {
         path("launch") {

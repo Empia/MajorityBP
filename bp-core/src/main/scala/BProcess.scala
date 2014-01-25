@@ -20,6 +20,12 @@ class BProcess(resource: List[String]) {
   def cns = variety.collect { case const: Constant[_] ⇒ const }
 
   /**
+   *  Owners
+   */
+
+  // def owners = ???
+
+  /**
    * Push elements to process
    */
   def pushit(target: ListBuffer[ProcElems]) = {
@@ -29,15 +35,21 @@ class BProcess(resource: List[String]) {
   def push(f: ⇒ ListBuffer[ProcElems]) = {
     pushit(f)
   }
+  /**
+   * Process initialization
+   */
 
+   // def init = ???
+
+
+  def resume = {
+    state = true
+  }
+  
   def stop(b: ProcElems) = {
     if (b.getClass.getSimpleName == "Stopper") {
       state = false
     }
-  }
-
-  def resume = {
-    state = true
   }
 
   def represent: String = {

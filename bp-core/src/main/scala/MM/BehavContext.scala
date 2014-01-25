@@ -1,5 +1,5 @@
 package main.scala.MM
 
-class BehavContext extends Context {
-
+class BehavContext(title: String) extends Context(title) {
+  var subject: List[Subject] = List()
 }

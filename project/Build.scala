@@ -14,11 +14,13 @@ object Build extends Build {
     .settings(basicSettings: _*)
     .settings(formatSettings: _*)
     .settings(noPublishing: _*)
+    .settings(revolverSettings: _*)
 
 
   lazy val bpCore = Project("bp-core", file("bp-core"))
     .settings(basicSettings: _*)
     .settings(formatSettings: _*)
+    .settings(revolverSettings: _*)
     .settings(
       libraryDependencies ++=
         List(akkaActor, sprayCan, sprayClient, sprayRouting, hdrHistogram, sprayJson)) 
@@ -30,6 +32,7 @@ object Build extends Build {
   lazy val bpSpray = Project("bp-spray", file("bp-spray"))
     .settings(basicSettings: _*)
     .settings(formatSettings: _*)
+    .settings(revolverSettings: _*)
     .settings(
       libraryDependencies ++=
         List(akkaActor,akkaSlf4j, logbackClassic, sprayCan, sprayClient, sprayRouting, hdrHistogram, sprayJson)) 

@@ -1,21 +1,11 @@
 <!doctype html>
-<html data-ng-app="gabbler">
-
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Gabbler</title>
-
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <title>Minority</title>
+  <link rel="stylesheet" href="css/app.css"/>
 </head>
-
-<body>
-
-<!--### The navigation bar ###-->
-<nav class="navbar navbar-default navbar-fixed-top" data-role="navigation">
+<body><nav class="navbar navbar-default navbar-fixed-top" data-role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,22 +13,34 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Gabbler</a>
+      <a class="navbar-brand" href="#">Minority</a>
+
+
     </div>
   </div>
 </nav>
+<div class="container">
+<li><a href="#/structure">Structure</a></li>
+<li><a href="#/production">Production</a></li>
+<li><a href="#/reports">Reports</a></li>
+<li><a href="#/process">Process</a></li>
 
+  <div>Minority App version:<span app-version></span></div></div>
 <div id="main" class="container" data-ng-view></div>
 
-<!-- ATTENTION: The ordering matters! -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/angular.js"></script>
-<script src="js/angular-route.js"></script>
-<script src="js/angular-resource.js"></script>
-<script src="js/app.js"></script>
-<script src="js/services.js"></script>
-<script src="js/controllers.js"></script>
+ss
 
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+  <script src="js/filters.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+
+  <script src="js/directives.js"></script>
 </body>
 </html>
