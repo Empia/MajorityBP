@@ -1,10 +1,10 @@
 package main.scala
 
-import main.scala.process_parts._
+import main.scala.simple_parts.process._
 import main.scala.utils._
 
 object Main extends App {
-  Tryin1.context
+  Tryin2.argparams
 
   //  println(Calculator("5 * 10"))
   //  println(Calculator("5 * 10").getClass)
@@ -12,6 +12,48 @@ object Main extends App {
 object Condtryin {
 
 }
+object Tryin2 {
+  import util.Random
+  import scala.collection.mutable._
+  import main.scala.MM._
+  import main.scala.simple_parts.process._
+
+  def param {
+    val proc = new BProcess(List("Stan", "Will"))
+    proc.push {
+      ListBuffer[ProcElems](
+        new Note("Test note"),
+        new Result)
+    }
+    new BLink(Option(proc.variety(0)), Option(proc.variety(1)))
+    InvokeTracer.run_proc(proc)
+  }
+  def argparams {
+    val proc = new BProcess(List("Stan", "Will"))
+    val input = new Note("Input note")
+    proc.push {
+      ListBuffer[ProcElems](
+        //new Note("Test note"),
+        //new Constant[Int](1001),
+        //new Constant[Int](1001),
+        new Constant[Boolean](true),
+        //new Input(input),
+        //new Checker,
+        new Result, // must be true
+        new InputPlaceholder)
+    }
+    //new BLink(Option(proc.variety(3)), Option(proc.variety(6)))
+    //new BLink(Option(proc.variety(0)), Option(proc.variety(1)))
+
+    //new ArgLink(Option(proc.variety(0)), Option(proc.variety(1)))
+    println("arrrgs")
+    println(ArgLink.links)
+
+    //proc.input(ListBuffer[ProcElems](input))
+    InvokeTracer.run_proc(proc)
+  }
+}
+
 object Tryin1 {
   import util.Random
   import scala.collection.mutable._
@@ -23,8 +65,8 @@ object Tryin1 {
       ListBuffer[ProcElems](
         new Note("Test note"),
         new Constant[Int](1001),
-        new Brick("fff", Unit, Unit, Unit, Unit),
-        new Brick("sss", Unit, Unit, Unit, Unit),
+        new Brick(),
+        new Brick(),
         new Result,
         // is front? not evaled
 
@@ -34,7 +76,7 @@ object Tryin1 {
         new Constant[Int](42),
         new Note("Condition note"),
         new Stopper,
-        new Brick("sss", Unit, Unit, Unit, Unit))
+        new Brick())
 
     }
     // Const -> Result
@@ -78,10 +120,10 @@ object Tryin1 {
     proc.variety = (ListBuffer[ProcElems](
       new Note("Test note"),
       new Constant[Int](1001),
-      new Brick("fff", Unit, Unit, Unit, Unit),
-      new Brick("sss", Unit, Unit, Unit, Unit),
+      new Brick(),
+      new Brick(),
       new Stopper,
-      new Brick("sss", Unit, Unit, Unit, Unit)))
+      new Brick()))
 
     // Proc Links
     // Invoke

@@ -1,5 +1,5 @@
 import main.scala.BProcess
-import main.scala.process_parts._
+import main.scala.simple_parts.process._
 
 class BPReport(proc: BProcess) {
   type Result = String

@@ -1,5 +1,5 @@
 package main.scala
-import main.scala.process_parts._
+import main.scala.simple_parts.process._
 import scala.collection.mutable._
 
 class BProcess(resource: List[String]) {
@@ -26,6 +26,10 @@ class BProcess(resource: List[String]) {
   // def owners = ???
 
   /**
+   * Input
+   */
+  // def fill(in: ListBuffer[ProcElems]) = find placeholder and change it
+  /**
    * Push elements to process
    */
   def pushit(target: ListBuffer[ProcElems]) = {
@@ -39,13 +43,12 @@ class BProcess(resource: List[String]) {
    * Process initialization
    */
 
-   // def init = ???
-
+  // def init = ???
 
   def resume = {
     state = true
   }
-  
+
   def stop(b: ProcElems) = {
     if (b.getClass.getSimpleName == "Stopper") {
       state = false
@@ -63,9 +66,11 @@ class BProcess(resource: List[String]) {
   }
 
 }
+
 /**
  * BPLogger
  */
+
 class BPLogger {
   type Result = String
   var logs: ListBuffer[Result] = ListBuffer()
@@ -75,20 +80,64 @@ class BPLogger {
 }
 
 /**
+ * InputDispatch
+ */
+
+object InputDispatch {
+  // def check(bp: BProcess, in: ListBuffer[ProcElems]) = { bp.input_fill(in) }
+}
+
+/**
  * Ivoking process
  */
+
 object InvokeTracer {
   /*
    * Process instance
    */
   var runner: Option[BProcess] = None
+  /*
+   * Argument & Parameters Validation
+   * TODO!!!!!!!!!!!
+   */
+  import scala.util.Try
+  def isValid(b: ProcElems): Boolean = {
+    val t = Try(b.getClass.getMethod("arguments")).isSuccess
+    val u = Try(b.getClass.getMethod("parameters")).isSuccess
+    if (t) {
+      argValid(b)
+    } else if (u) {
+      paramValid(b)
+    } else {
+      true
+    }
+  }
+  def argValid(b: ProcElems): Boolean = {
+    val x = ArgLinkDispatch.from(b)
+    val y = x match {
+      case None ⇒ None
+      case _    ⇒ true
+    }
+    y != None
+
+  }
+  def paramValid(b: ProcElems): Boolean = {
+    val x = PLinkDispatch.from(b)
+    val y = x match {
+      case None ⇒ None
+      case _    ⇒ true
+    }
+    y != None
+
+  }
+
   /**
    * Executor
    */
   def run_init(proc: BProcess) = {
     for (b ← proc.variety) {
       if (proc.state) {
-        if (isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
+        if (isValid(b) && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
           // also add to run_from method
           println("Try invoking the: the: " + b);
           b.invoke
@@ -161,6 +210,5 @@ object InvokeTracer {
       }
     }
   }
-
 }
 
