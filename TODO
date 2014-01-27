@@ -1,18 +1,14 @@
-
-/
-  * Argument & Parameters Validation try...
-  * Input
   * Multiple arguments parameters by block
   * Scope link to process
-  * Invoke block
   * Scope link to context
   * DB Scheme
 
 /Alpha/
+  * Invoke block
   /** 2 Books read **/
   * MM for everything{New blocks} // cleanup
   * Slick integration
-  * Input block while proc/context running
+  * Input block while proc/context running(wait for input if it paused)
   * API End-Point
   * Angular app
   * Invoke card
@@ -39,7 +35,9 @@ ____
 
 /hospital/
 1. telephone to poliklinika 1 from photo
+
 2. erase stol spravok from poliklinika 2
+
 3.
 .header_left {
 float: left;
@@ -48,6 +46,8 @@ text-align: center;;
 }
 МУЗ ДКГБ №9
 г Челябинск.
+
+
 4. http://www.gorzdrav74.ru/ 
 квадратики 
 1 2

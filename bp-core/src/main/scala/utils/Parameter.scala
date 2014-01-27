@@ -5,6 +5,6 @@ trait ParamDispatch { self ⇒
   // validate type of param
   // handle many param  
   def parameters = PLinkDispatch.from(this)
-  def param_valid = self.parameters.isDefined
+  def isParamsExist = self.parameters.isDefined
 
 }

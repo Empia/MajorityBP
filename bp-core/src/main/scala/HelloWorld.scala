@@ -45,11 +45,11 @@ object Tryin2 {
     //new BLink(Option(proc.variety(3)), Option(proc.variety(6)))
     //new BLink(Option(proc.variety(0)), Option(proc.variety(1)))
 
-    //new ArgLink(Option(proc.variety(0)), Option(proc.variety(1)))
+    new ArgLink(Option(proc.variety(0)), Option(proc.variety(1)))
     println("arrrgs")
     println(ArgLink.links)
 
-    //proc.input(ListBuffer[ProcElems](input))
+    proc.fill(ListBuffer[ProcElems](input))
     InvokeTracer.run_proc(proc)
   }
 }

@@ -5,6 +5,6 @@ trait ArgumentDispatch { self ⇒
   // validate type of argument
   // handle many argument  
   def arguments = ArgLinkDispatch.from(this)
-  def arg_valid = self.arguments.isDefined
+  def isArgsExist = self.arguments.isDefined
 
 }

@@ -29,6 +29,7 @@ object PLinkDispatch {
   def from(target: Any) = {
     InvokeTracer.runner.get.logger.log("dispatch invoked")
     val x = PLink.links.toList.find(_.to == Some(target))
+    // handle many argument  
     x match {
       case None ⇒ None
       case _    ⇒ x.get.from
@@ -64,6 +65,7 @@ object ArgLinkDispatch {
   def from(target: Any) = {
     InvokeTracer.runner.get.logger.log("dispatch invoked")
     val x = ArgLink.links.toList.find(_.to == Some(target))
+    // handle many argument  
     x match {
       case None ⇒ None
       case _    ⇒ x.get.from

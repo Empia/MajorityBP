@@ -28,7 +28,10 @@ class BProcess(resource: List[String]) {
   /**
    * Input
    */
-  // def fill(in: ListBuffer[ProcElems]) = find placeholder and change it
+  def fill(in: ListBuffer[ProcElems]) = {
+    val z = variety.collect { case placeholder: InputPlaceholder ⇒ placeholder }
+    for (x ← z; y ← in) yield (x.push(y))
+  }
   /**
    * Push elements to process
    */
@@ -80,14 +83,6 @@ class BPLogger {
 }
 
 /**
- * InputDispatch
- */
-
-object InputDispatch {
-  // def check(bp: BProcess, in: ListBuffer[ProcElems]) = { bp.input_fill(in) }
-}
-
-/**
  * Ivoking process
  */
 
@@ -98,7 +93,6 @@ object InvokeTracer {
   var runner: Option[BProcess] = None
   /*
    * Argument & Parameters Validation
-   * TODO!!!!!!!!!!!
    */
   import scala.util.Try
   def isValid(b: ProcElems): Boolean = {
@@ -119,7 +113,6 @@ object InvokeTracer {
       case _    ⇒ true
     }
     y != None
-
   }
   def paramValid(b: ProcElems): Boolean = {
     val x = PLinkDispatch.from(b)
@@ -128,7 +121,6 @@ object InvokeTracer {
       case _    ⇒ true
     }
     y != None
-
   }
 
   /**

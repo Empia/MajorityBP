@@ -27,11 +27,18 @@ class Input[T >: ProcElems](block: T) extends ProcElems {
   }
 }
 
-class InputPlaceholder[T >: ProcElems] extends ProcElems {
-  var container = None
+class InputPlaceholder extends ProcElems {
+  import main.scala.simple_parts.process._
+  var container: Option[ProcElems] = None
+  def push(b: ProcElems) {
+    container = Option(b)
+  }
   def invoke {
-    // container = Some(InputDispatch)
-    //
+    if (container != None) {
+      println(container.get.invoke)
+
+      // get.invoke
+    }
   }
 }
 
