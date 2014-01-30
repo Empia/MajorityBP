@@ -1,8 +1,8 @@
 package main.scala
 
-import main.scala.process_parts._
-import main.scala.utils._
-import main.scala.MM._
+//import main.scala.process_parts._
+//import main.scala.utils._
+//import main.scala.MM._
 /*
 import akka.actor.ActorSystem
 import scala.util.Properties.{ lineSeparator ⇒ newLine }
@@ -151,6 +151,12 @@ object Condtryin {
 
 }
 */
+/* ======================================================
+   ======================================================
+   ======================================================
+   ======================================================
+   ====================================================== */
+    /*
 object Tryin1 {
   import util.Random
   import scala.collection.mutable._
@@ -234,4 +240,4 @@ object Tryin1 {
     println(InvokeTracer.isFront(proc.variety(9)))
   }
 
-}
+} */

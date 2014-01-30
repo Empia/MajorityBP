@@ -3,10 +3,16 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+  controller('StrcCtrl', [function() {
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('PrdCtrl', [function() {
+
+  }])  
+  .controller('ReportsCtrl', [function() {
+
+  }])  
+  .controller('ProcessCtrl', [function() {
 
   }]);
 
@@ -17,27 +23,37 @@ angular.module(
     'myApp.services'
   ]
 );
-gabblerControllers.controller('MyCtrl1', ['$scope', 'Message', function($scope, Message) {
+gabblerControllers.controller('PrdCtrl', ['$scope', 'Message', function($scope, Message) {
 
 //$scope.messages = [{'username': "lol", "text":"textss", "value": false, "type": "Block"}, $scope.mess];
-$scope.messages = []
+//$scope.messages = []
 $scope.getMessages = function() {
-
+   $scope.messages = []
    var messages = Message.query(function() {
     $scope.messages = messages.concat($scope.messages);
-
-//    $scope.getMessages();
   });
 
-        console.log(messages);
+  console.log(messages);
 };
-
-$scope.message = new Message({ 'username': '' });
+$scope.getMessages();
+$scope.message = new Message({  "id": null,
+  "title": "",
+  "address": "",
+  "city": "",
+  "state": "",
+  "zip": "" });
 
 $scope.sendMessage = function() {
-  $scope.message.$save(); // POST Request
+  var object = $scope.message.$save(); // POST Request
   console.log($scope.message);
-  $scope.message = new Message({ 'username': '' });
+  console.log(object);
+  $scope.getMessages();
+  //$scope.message = new Message({  "id": null,
+  //"title": "",
+  //"address": "",
+  //"city": "",
+  //"state": "",
+  //"zip": "" });
 };
 }]);
 

@@ -1,57 +1,58 @@
+  * DB Scheme
+
   * Multiple arguments parameters by block
   * Scope link to process
   * Scope link to context
-  * DB Scheme
-
-/Alpha/
-  * Invoke block
+  * Process invoke block
   /** 2 Books read **/
   * MM for everything{New blocks} // cleanup
   * Slick integration
   * Input block while proc/context running(wait for input if it paused)
+  * Process flow
   * API End-Point
   * Angular app
-  * Invoke card
-  * Resources
-  * Behav Resources
-  * Datablock?
-  * ResAct blocks
+  * Invoke card(Reporter)
+
+/Alpha/
+  * Resources || Employees, Clients, Groups || Process owning, viewers, access
+  * ResAct blocks - optional (nff)
   * Observer block
-  * Collab & sharing?
-  * Behav model methods and elements
-  * Neo4J integration?
-  * Templates BP, ctx, sbj?
-  * Graph.js
-  * Merchant?
-  * scope ctx, bp ?
   * Key/value data store
-  * Block register / Elem -> Block conversion
-  * Sandbox for testing external Blocks
+  * Collab & sharing?
+  * Graph.js
+
 ____
 /Final/
+  * Merchant?
+  * Datablock?
+  * Bridge
+  * Fully featured Resources
+  * Behav Resources
+  * Behav model methods and elements
+  * Templates BP, ctx, sbj?
+  * Neo4J integration?
+  * scope ctx, bp ?
+  * Complex block
+  * Block register / Elem -> Block conversion
+  * Sandbox for testing external Blocks
   * Service
   * RPC
   * Regressor-core
 
-/hospital/
-1. telephone to poliklinika 1 from photo
 
-2. erase stol spravok from poliklinika 2
 
-3.
-.header_left {
-float: left;
-width: 598px;
-text-align: center;;
+
+.site_container {
+max-width: 1590px;
+margin-left: auto;
+margin-right: auto;
+background-color: rgba(246, 211, 157, 0.8);
 }
-МУЗ ДКГБ №9
-г Челябинск.
+капельки несколько
+подписать 2 gis
+poliklinika 1 with photo
+фотки тевс и соняк маленький
 
+вакансии вместо новостей 
 
-4. http://www.gorzdrav74.ru/ 
-квадратики 
-1 2
-2 1
-2 2 
-4 1
-После слайдера
+войти форма

@@ -12,7 +12,7 @@ var myAppServices =
 myAppServices.factory(
   'Message',
   function($resource) {
-    return $resource('messages.json');
+    return $resource('/process');
   });
 
 
