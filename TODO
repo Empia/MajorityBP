@@ -1,28 +1,36 @@
-  * DB Scheme
 
-  * Multiple arguments parameters by block
   * Scope link to process
   * Scope link to context
+
+
   * Process invoke block
-  /** 2 Books read **/
-  * MM for everything{New blocks} // cleanup
-  * Slick integration
   * Input block while proc/context running(wait for input if it paused)
   * Process flow
+  * Slick integration
+  * DB Scheme
   * API End-Point
   * Angular app
-  * Invoke card(Reporter)
 
+
+/** 2 Books read **/
+  * MM for everything{New blocks} // cleanup
+  * Invoke card(Reporter)
 /Alpha/
-  * Resources || Employees, Clients, Groups || Process owning, viewers, access
+  * Resources 
+  || Employees, Clients, Groups 
+  || Process owning, viewers, access
+
   * ResAct blocks - optional (nff)
-  * Observer block
-  * Key/value data store
   * Collab & sharing?
   * Graph.js
 
+  * Observer block
+  * Key/value data store
+
 ____
 /Final/
+  * Condition multiple args
+  * Multiple parrams
   * Merchant?
   * Datablock?
   * Bridge
@@ -50,7 +58,9 @@ background-color: rgba(246, 211, 157, 0.8);
 }
 капельки несколько
 подписать 2 gis
+
 poliklinika 1 with photo
+
 фотки тевс и соняк маленький
 
 вакансии вместо новостей 

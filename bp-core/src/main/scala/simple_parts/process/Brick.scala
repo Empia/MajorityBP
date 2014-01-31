@@ -7,6 +7,7 @@ package main.scala.simple_parts.process
 import main.scala.InvokeTracer
 import main.scala.utils.ArgumentDispatch
 import main.scala.utils.ParamDispatch
+import scala.util.Try
 
 class Brick() extends ProcElems {
 
@@ -19,8 +20,25 @@ class Brick() extends ProcElems {
 
 class Result extends ProcElems with ArgumentDispatch { // with ArgumentDispatch
   lazy val obj = arguments
+  //lazy val isList = Try(obj.getClass.getMethod("head")).isSuccess
   def invoke() {
-    InvokeTracer.runner.get.logger.log("Result:" + obj)
+    if (isMultiple) {
+      multiple(obj.productIterator.toList)
+    } else {
+      println(isMultiple)
+      println("================")
+      println("================")
+      println("================")
+      //!!!!!  InvokeTracer.runner.get.logger.log("Result:" + obj)
+      println("result" + obj.toString)
+    }
+  }
+  def plain() = println("result" + obj.toString);
+  def multiple(obj: List[Any]) = {
+    for (o ← obj) {
+      // !!! InvokeTracer.runner.get.logger.log("Result:" + o)
+      println("result" + o.toString)
+    }
   }
   override def toString = s"Result $obj"
 }

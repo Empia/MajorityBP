@@ -62,14 +62,22 @@ object ArgLinkDispatch {
       case _ ⇒ x.map(_.to)
     }
   }
+  def isMultiple(target: Any) = {
+    if (ArgLink.links.toList.filter(_.to == Some(target)).length > 1) {
+      ArgLink.links.toList.filter(_.to == Some(target)).map(_.from)
+    } else if (ArgLink.links.toList.filter(_.to == Some(target)).length == 1) {
+      ArgLink.links.toList.filter(_.to == Some(target)).head.from
+    } else {
+      None
+    }
+  }
   def from(target: Any) = {
     InvokeTracer.runner.get.logger.log("dispatch invoked")
-    val x = ArgLink.links.toList.find(_.to == Some(target))
     // handle many argument  
-    x match {
-      case None ⇒ None
-      case _    ⇒ x.get.from
-    }
+    isMultiple(target) //isMultiple(target) match {
+    //  case None ⇒ None
+    //  case _    ⇒ isMultiple(target)
+    //}
   }
 }
 
