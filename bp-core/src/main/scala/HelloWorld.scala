@@ -5,15 +5,42 @@ import main.scala.utils._
 
 object Main extends App {
   Tryin2.argparams
-
+  Tryin3.context
   println(Calculator("5" + "*" + "10"))
   //  println(Calculator("5 * 10").getClass)
+}
+object Tryin3 {
+  import main.scala.MM._
+  import scala.collection.mutable._
+  def context {
+    // Context
+    val context = new StructContext("Accounting")
+    context.subjects = List(new Subject("Taxes"))
+    // Resource
+    type Resource = List[String]
+    val resource: Resource = List("Stan", "Will")
+    // Process
+    val proc = new BProcess(List("Stan", "Will"))
+    proc.push {
+      ListBuffer[ProcElems](
+        new Note("Test note"),
+        new Result)
+    }
+    // Links
+    new BLink(Option(proc.variety(0)), Option(proc.variety(1)))
+
+    // Push proc to subject
+    context.subjects.head.subj_elems = ListBuffer(proc)
+    // Run proc
+    InvokeTracer.run_proc(proc)
+
+    println(context.subjects.head.subj_elems)
+  }
 }
 
 object Tryin2 {
   import util.Random
   import scala.collection.mutable._
-  //import main.scala.MM._
   import main.scala.simple_parts.process._
 
   def param {

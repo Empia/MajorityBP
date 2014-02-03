@@ -13,3 +13,5 @@ addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.1")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8")
 
 addSbtPlugin("com.markatta" % "taglist-plugin" % "1.3")
+
+addSbtPlugin("com.orrsella" % "sbt-stats" % "1.0.5")
