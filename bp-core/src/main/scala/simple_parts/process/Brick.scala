@@ -20,15 +20,11 @@ class Brick() extends ProcElems {
 
 class Result extends ProcElems with ArgumentDispatch { // with ArgumentDispatch
   lazy val obj = arguments
-  //lazy val isList = Try(obj.getClass.getMethod("head")).isSuccess
+
   def invoke() {
     if (isMultiple) {
       multiple(obj.productIterator.toList)
     } else {
-      println(isMultiple)
-      println("================")
-      println("================")
-      println("================")
       //!!!!!  InvokeTracer.runner.get.logger.log("Result:" + obj)
       println("result" + obj.toString)
     }

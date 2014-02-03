@@ -9,7 +9,7 @@ import main.scala.InvokeTracer
 class PLink(start: Option[ProcElems], end: Option[ProcElems]) {
   def from: Option[ProcElems] = this.start
   def to: Option[ProcElems] = this.end
-  PLink.links = PLink.links :+ this
+  //PLink.links = PLink.links :+ this
 }
 object PLink {
   var links: List[PLink] = List()
@@ -20,7 +20,7 @@ object PLink {
 object PLinkDispatch {
   def apply(target: Any) = println(target.getClass)
   def to(target: Any) = {
-    val x = PLink.links.toList.filter(_.from == Some(target))
+    val x = InvokeTracer.runner.get.arguments.toList.filter(_.from == Some(target))
     x match {
       //case None => None
       case _ ⇒ x.map(_.to)
@@ -28,7 +28,7 @@ object PLinkDispatch {
   }
   def from(target: Any) = {
     InvokeTracer.runner.get.logger.log("dispatch invoked")
-    val x = PLink.links.toList.find(_.to == Some(target))
+    val x = InvokeTracer.runner.get.arguments.toList.find(_.to == Some(target))
     // handle many argument  
     x match {
       case None ⇒ None
@@ -43,7 +43,7 @@ object PLinkDispatch {
 class ArgLink(start: Option[ProcElems], end: Option[ProcElems]) {
   def from: Option[ProcElems] = this.start
   def to: Option[ProcElems] = this.end
-  ArgLink.links = ArgLink.links :+ this
+  //ArgLink.links = ArgLink.links :+ this
 }
 
 object ArgLink {
@@ -54,30 +54,27 @@ object ArgLink {
 }
 
 object ArgLinkDispatch {
+  def proc = InvokeTracer.runner.get
   def apply(target: Any) = println(target.getClass)
   def to(target: Any) = {
-    val x = ArgLink.links.toList.filter(_.from == Some(target))
+    val x = proc.arguments.toList.filter(_.from == Some(target))
     x match {
       //case None => None
       case _ ⇒ x.map(_.to)
     }
   }
   def isMultiple(target: Any) = {
-    if (ArgLink.links.toList.filter(_.to == Some(target)).length > 1) {
-      ArgLink.links.toList.filter(_.to == Some(target)).map(_.from)
+    if (proc.arguments.toList.filter(_.to == Some(target)).length > 1) {
+      proc.arguments.toList.filter(_.to == Some(target)).map(_.from)
     } else if (ArgLink.links.toList.filter(_.to == Some(target)).length == 1) {
-      ArgLink.links.toList.filter(_.to == Some(target)).head.from
+      proc.arguments.toList.filter(_.to == Some(target)).head.from
     } else {
       None
     }
   }
   def from(target: Any) = {
     InvokeTracer.runner.get.logger.log("dispatch invoked")
-    // handle many argument  
-    isMultiple(target) //isMultiple(target) match {
-    //  case None ⇒ None
-    //  case _    ⇒ isMultiple(target)
-    //}
+    isMultiple(target)
   }
 }
 

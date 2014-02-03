@@ -1,8 +1,3 @@
-
-  * Scope link to process
-  * Scope link to context
-
-
   * Process invoke block
   * Input block while proc/context running(wait for input if it paused)
   * Process flow
@@ -13,7 +8,11 @@
 
 
 /** 2 Books read **/
-  * MM for everything{New blocks} // cleanup
+  [* MM for everything{New blocks} // cleanup
+  [* Condition multiple args
+  [* Scope link to context
+  [* Multiple parrams
+  
   * Invoke card(Reporter)
 /Alpha/
   * Resources 
@@ -25,12 +24,10 @@
   * Graph.js
 
   * Observer block
-  * Key/value data store
 
 ____
 /Final/
-  * Condition multiple args
-  * Multiple parrams
+
   * Merchant?
   * Datablock?
   * Bridge
@@ -62,7 +59,3 @@ background-color: rgba(246, 211, 157, 0.8);
 poliklinika 1 with photo
 
 фотки тевс и соняк маленький
-
-вакансии вместо новостей 
-
-войти форма

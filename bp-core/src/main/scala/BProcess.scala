@@ -12,6 +12,23 @@ class BProcess(resource: List[String]) {
   var variety: ListBuffer[ProcElems] = ListBuffer()
   val logger = new BPLogger
   /**
+   *  Links || Arguments, Parameters
+   */
+
+  var arguments: ListBuffer[ArgLink] = ListBuffer()
+  var parameters: ListBuffer[PLink] = ListBuffer()
+
+  def arg_push(x: ArgLink) = arguments += x
+  def param_push(x: PLink) = parameters += x
+
+  def showArguments = arguments.map(s ⇒ s.from.toString
+    + Console.RED + " -> " + Console.WHITE +
+    s.to.toString)
+  def showParameters = parameters.map(s ⇒ s.from.toString
+    + Console.RED + " -> " + Console.WHITE +
+    s.to.toString)
+
+  /**
    *  Process collection methods
    */
   def blk = variety.collect { case block: Block ⇒ block }

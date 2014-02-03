@@ -9,4 +9,6 @@ trait ParamDispatch { self ⇒
   def parameters = PLinkDispatch.from(this)
   def isParamsExist = self.parameters.isDefined
 
+  //def isMultiple = Try(arguments.getClass.getMethod("head")).isSuccess
+
 }
