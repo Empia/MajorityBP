@@ -1,33 +1,37 @@
-  * Process invoke block
-  * Input block while proc/context running(wait for input if it paused)
-  * Process flow
+  * Process flow // checker
+ 
+  [* MM for everything{New blocks} // cleanup
+  [* CHAIN Invoke -> Process -> Process ]
+
+  [* Condition multiple args  isList
+  [* Multiple parrams         isList
+
+
+
+  /Alpha/
+/** 2 Books read **/
+  * Invoke card(Reporter)
   * Slick integration
   * DB Scheme
   * API End-Point
   * Angular app
-
-
-/** 2 Books read **/
-  [* MM for everything{New blocks} // cleanup
-  [* Condition multiple args
-  [* Scope link to context
-  [* Multiple parrams
-  
-  * Invoke card(Reporter)
-/Alpha/
   * Resources 
   || Employees, Clients, Groups 
   || Process owning, viewers, access
-
   * ResAct blocks - optional (nff)
   * Collab & sharing?
+
+  * Return block
   * Graph.js
 
-  * Observer block
-
+  * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  * Input block while proc/context running(wait for input if it paused)
+  * Return in ProcElems [ Block that return blocks and arg&params ]
+  * Return in BProcess  [ Blocks that comes after process invoked ]
 ____
 /Final/
 
+  * Observer block
   * Merchant?
   * Datablock?
   * Bridge
@@ -43,14 +47,4 @@ ____
   * Service
   * RPC
   * Regressor-core
-
-
-
-
-
-капельки несколько
-подписать 2 gis
-
-poliklinika 1 with photo
-
-фотки тевс и соняк маленький
+  * Zappier

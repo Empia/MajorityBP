@@ -71,14 +71,14 @@ class Dimension(
   }
 
   def invoke = {
-    pushit(BLinkDispatch.to(this).map(_.get).to[ListBuffer])
+    pushit(ArgLinkDispatch.to(this).map(_.get).to[ListBuffer])
     InvokeTracer.run_dim(this, InvokeTracer.runner.get)
   }
 }
 
 class Condition(c: Boolean) extends ProcElems { // with ArgumentDispatch
   lazy val d1 = {
-    BLinkDispatch.to(this).head.get // FIX THAT!!!!!!!!!!!!!!!!!
+    ArgLinkDispatch.to(this).head.get // FIX THAT!!!!!!!!!!!!!!!!!
     //new Dimension
 
   }

@@ -1,7 +1,7 @@
 package main.scala.utils
 import main.scala.simple_parts.process._
 /**
- *  Param — Structure of object
+ *  Param — Valuable elements of object
  */
 trait ParamDispatch { self ⇒
   // validate type of param
@@ -10,5 +10,5 @@ trait ParamDispatch { self ⇒
   def isParamsExist = self.parameters.isDefined
 
   //def isMultiple = Try(arguments.getClass.getMethod("head")).isSuccess
-
+  val isOptionalParam = false
 }

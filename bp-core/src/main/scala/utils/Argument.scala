@@ -7,6 +7,9 @@ import scala.util.Try
 trait ArgumentDispatch { self ⇒
   // validate type of argument
   def arguments = ArgLinkDispatch.from(this)
-  //def isArgsExist = self.arguments.isDefined
   def isMultiple = Try(arguments.getClass.getMethod("head")).isSuccess
+  //def isArgsExist = self.arguments.isDefined
+
+  val isOptionalArg = false
+
 }

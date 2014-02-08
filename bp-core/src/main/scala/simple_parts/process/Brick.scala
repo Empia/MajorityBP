@@ -15,7 +15,7 @@ class Brick() extends ProcElems {
   def invoke {
     InvokeTracer.runner.get.logger.log("invoked brick")
   }
-  def linked_to = BLinkDispatch(this)
+  def linked_to = ArgLinkDispatch(this)
 }
 
 class Result extends ProcElems with ArgumentDispatch { // with ArgumentDispatch
