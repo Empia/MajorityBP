@@ -3,7 +3,7 @@
  */
 package main.scala.MM
 
-import main.scala.BProcess
+import main.scala.bprocesses.BProcess
 import main.scala.simple_parts.context._
 
 /**

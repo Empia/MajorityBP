@@ -1,5 +1,8 @@
-package main.scala
+package main.scala.bprocesses
+
 import main.scala.simple_parts.process._
+import main.scala.simple_parts.process.control._
+import main.scala.simple_parts.process.data._
 import scala.collection.mutable._
 
 class BProcess(resource: List[String]) {
@@ -16,15 +19,15 @@ class BProcess(resource: List[String]) {
    */
 
   var arguments: ListBuffer[ArgLink] = ListBuffer()
-  var parameters: ListBuffer[PLink] = ListBuffer()
+  var params: ListBuffer[PLink] = ListBuffer()
 
   def arg_push(x: ArgLink) = arguments += x
-  def param_push(x: PLink) = parameters += x
+  def param_push(x: PLink) = params += x
 
   def showArguments = arguments.map(s ⇒ s.from.toString
     + Console.RED + " -> " + Console.WHITE +
     s.to.toString)
-  def showParameters = parameters.map(s ⇒ s.from.toString
+  def showParameters = params.map(s ⇒ s.from.toString
     + Console.RED + " -> " + Console.WHITE +
     s.to.toString)
 
@@ -91,138 +94,4 @@ class BProcess(resource: List[String]) {
   //  // Return List[Args, Params]
   //}
 
-}
-
-/**
- * BPLogger
- */
-
-class BPLogger {
-  type Result = String
-  var logs: ListBuffer[Result] = ListBuffer()
-  def log(result: Result) = {
-    logs = logs :+ result
-  }
-}
-
-/**
- * Ivoking process
- */
-
-object InvokeTracer {
-  /*
-   * Process instance
-   */
-  var runner: Option[BProcess] = None
-  /*
-   * Argument & Parameters Validation
-   */
-  import scala.util.Try
-  def isValid(b: ProcElems): Boolean = {
-    val t = Try(b.getClass.getMethod("arguments")).isSuccess
-    val u = Try(b.getClass.getMethod("parameters")).isSuccess
-    if (t) {
-      argValid(b)
-    } else if (u) {
-      paramValid(b)
-    } else {
-      true
-    }
-  }
-  def argValid(b: ProcElems): Boolean = {
-    val x = ArgLinkDispatch.from(b)
-    val y = x match {
-      case None ⇒ None
-      case _    ⇒ true
-    }
-    y != None
-  }
-  def paramValid(b: ProcElems): Boolean = {
-    val x = PLinkDispatch.from(b)
-    val y = x match {
-      case None ⇒ None
-      case _    ⇒ true
-    }
-    y != None
-  }
-
-  /**
-   * Executor
-   */
-  def run_init(proc: BProcess) = {
-    for (b ← proc.variety) {
-      if (proc.state) {
-        if (isValid(b)) { // && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
-          // also add to run_from method
-          println("Try invoking the: the: " + b);
-          b.invoke
-          println(proc.step)
-          proc.step = proc.step + 1;
-        }
-      } else {
-        println(proc.step)
-        proc.status = "Paused"
-      }
-    }
-
-    if (proc.state && proc.status != "Paused") {
-      proc.step = 0
-      proc.status = "Complete/Stop"
-    }
-  }
-
-  def run_from(proc: BProcess) = {
-    proc.status = "Stop"
-    proc.resume
-
-    for (b ← (proc.variety.slice(proc.step, proc.variety.length + 1))) {
-      if (proc.state) {
-        println("Try invoking the: " + b);
-        b.invoke
-
-        proc.step = proc.step + 1;
-      } else {
-
-        proc.status = "Paused"
-      }
-    }
-
-    if (proc.state && proc.status != "Paused") {
-      proc.step = 0
-      proc.status = "Complete/Stop"
-    }
-  }
-  def run_proc(proc: BProcess) = {
-    runner = Option(proc)
-    if (proc.step > 0) {
-      run_from(proc)
-    } else {
-      run_init(proc)
-    }
-  }
-  /**
-   * * Dimension
-   */
-  //def isFront(b: ProcElems): Boolean = {
-  //  val x = ArgLinkDispatch.from(b)
-  //  val y = x match {
-  //    case None ⇒ None
-  //    case _    ⇒ x.get.getClass.getSimpleName
-  //  }
-  //  y != "Dimension"
-  //}
-
-  def run_dim(dim: Dimension, proc: BProcess) {
-    for (b ← dim.container) {
-      if (proc.state) {
-        println("Invoking the: " + b);
-        b.invoke
-        println(proc.step)
-        proc.step = proc.step + 1;
-      } else {
-        println(proc.step)
-        proc.status = "Paused"
-      }
-    }
-  }
 }

@@ -1,6 +1,9 @@
 package main.scala
 
+import main.scala.bprocesses._
 import main.scala.simple_parts.process._
+import main.scala.simple_parts.process.control._
+import main.scala.simple_parts.process.data._
 import main.scala.utils._
 
 object Main extends App {

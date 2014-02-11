@@ -1,16 +1,6 @@
   * Process flow // checker
- 
-  [* MM for everything{New blocks} // cleanup
-  [* CHAIN Invoke -> Process -> Process ]
-
-  [* Condition multiple args  isList
-  [* Multiple parrams         isList
-
-
-
-  /Alpha/
-/** 2 Books read **/
-  * Invoke card(Reporter)
+  * Input wait / status
+  /** 2 Books read **/
   * Slick integration
   * DB Scheme
   * API End-Point
@@ -21,13 +11,19 @@
   * ResAct blocks - optional (nff)
   * Collab & sharing?
 
-  * Return block
+  [* Multiple parrams         isList
+  [* Condition multiple args  isList
+
   * Graph.js
 
+  * Invoke card(Reporter)
+  [* CHAIN Invoke -> Process -> Process ]
   * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
   * Input block while proc/context running(wait for input if it paused)
   * Return in ProcElems [ Block that return blocks and arg&params ]
   * Return in BProcess  [ Blocks that comes after process invoked ]
+  * Link block[Input, return, ...]
+
 ____
 /Final/
 

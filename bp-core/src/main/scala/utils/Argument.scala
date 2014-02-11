@@ -10,6 +10,7 @@ trait ArgumentDispatch { self ⇒
   def isMultiple = Try(arguments.getClass.getMethod("head")).isSuccess
   //def isArgsExist = self.arguments.isDefined
 
+  val isArgList = false
   val isOptionalArg = false
 
 }

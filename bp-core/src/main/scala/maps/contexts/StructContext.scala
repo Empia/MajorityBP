@@ -8,7 +8,7 @@ class StructContext(title: String) extends Context(title) {
     subjects.foreach(s ⇒ println(s.toString))
   }
   /**
-   * Synergy for Resources
+   * Synergy for Resources [book]
    * Groups
    * Interaction between them
    */

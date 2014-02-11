@@ -1,3 +1,5 @@
+.idea/
+.idea_modules/
 .settings/
 .worksheet/
 .cache/
@@ -19,3 +21,7 @@ dist/*
 target/
 lib_managed/
 src_managed/
+
+.settings/*
+*.settings/
+*/.settings/

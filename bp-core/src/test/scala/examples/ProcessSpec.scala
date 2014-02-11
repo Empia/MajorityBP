@@ -1,13 +1,12 @@
 package examples
 import main.scala.BProcess
-import org.specs2._
 
 
 //import util.Random
 //import scala.collection.mutable._
 /**
  * This specification shows how to create examples using the "acceptance" style
- */
+
 class HelloWorldSpec extends Specification { def is = s2"""
  
  This is a specification to check the 'Hello world' string
@@ -24,4 +23,4 @@ class HelloWorldSpec extends Specification { def is = s2"""
   def e3 = "Hello world" must endWith("world")
   val proc = new BProcess(List("Stan", "Will"), "m")
   def e4 = (proc != new BProcess(List(), "m"))
-} 
+} */

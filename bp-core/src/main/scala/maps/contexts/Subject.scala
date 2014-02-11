@@ -1,6 +1,6 @@
 package main.scala.MM
 import scala.collection.mutable._
-import main.scala._
+import main.scala.bprocesses._
 import main.scala.simple_parts.process.ArgLink
 import main.scala.simple_parts.process.PLink
 class Subject(title: String) {
@@ -10,8 +10,8 @@ class Subject(title: String) {
   var frames: ListBuffer[Frame] = ListBuffer()
 
   var arguments: ListBuffer[ArgLink] = ListBuffer()
-  var parameters: ListBuffer[PLink] = ListBuffer()
+  var params: ListBuffer[PLink] = ListBuffer()
 
   def arg_push(x: ArgLink) = arguments += x
-  def param_push(x: PLink) = parameters += x
+  def param_push(x: PLink) = params += x
 }
