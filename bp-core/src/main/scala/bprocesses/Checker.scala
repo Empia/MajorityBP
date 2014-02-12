@@ -19,20 +19,10 @@ object InvokeChecker {
     }
   }
 
-  //def isInputed(b: ProcElems): Boolean = {
-  //
-  //}
-  /**
-   * Dimension
-   */
-  //def isFront(b: ProcElems): Boolean = {
-  //  val x = ArgLinkDispatch.from(b)
-  //  val y = x match {
-  //    case None ⇒ None
-  //    case _    ⇒ x.get.getClass.getSimpleName
-  //  }
-  //  y != "Dimension"
-  //}
+  def isInputed(bp: BProcess) = {
+    val teta = (bp.inputs).map(i ⇒ i.isFilled)
+    teta.foldLeft(true)(_ && _)
+  }
 
   def argValid(b: ProcElems): Boolean = {
     val x = ArgLinkDispatch.from(b)
@@ -51,5 +41,16 @@ object InvokeChecker {
     }
     y != None
   }
+  /**
+   * Dimension
+   */
+  //def isFront(b: ProcElems): Boolean = {
+  //  val x = ArgLinkDispatch.from(b)
+  //  val y = x match {
+  //    case None ⇒ None
+  //    case _    ⇒ x.get.getClass.getSimpleName
+  //  }
+  //  y != "Dimension"
+  //}
 
 }

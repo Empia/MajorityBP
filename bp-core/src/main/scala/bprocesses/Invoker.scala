@@ -16,6 +16,7 @@ object InvokeTracer {
    * Executor
    */
   def run_init(proc: BProcess) = {
+    InvokeChecker.isInputed(proc)
     for (b ← proc.variety) {
       if (proc.state) {
         if (InvokeChecker.isValid(b)) { // && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
@@ -66,7 +67,9 @@ object InvokeTracer {
       run_init(proc)
     }
   }
-
+  /**
+   * Dimensions (Need to refactor)
+   */
   def run_dim(dim: Dimension, proc: BProcess) {
     for (b ← dim.container) {
       if (proc.state) {

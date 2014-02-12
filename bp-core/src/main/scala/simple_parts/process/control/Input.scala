@@ -13,8 +13,11 @@ class InputPlaceholder extends ProcElems {
   def push(b: ProcElems) {
     container = Option(b)
   }
+  def isFilled =
+    { container != None }
+
   def invoke {
-    if (container != None) {
+    if (isFilled) {
       println(container.get.invoke)
 
       // get.invoke

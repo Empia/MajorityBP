@@ -38,6 +38,7 @@ class BProcess(resource: List[String]) {
   def rsl = variety.collect { case brick: Result ⇒ brick }
   def chk = variety.collect { case brick: Brick ⇒ brick }
   def cns = variety.collect { case const: Constant[_] ⇒ const }
+  def inputs = variety.collect { case inputs: InputPlaceholder ⇒ inputs }
 
   /**
    *  Owners
