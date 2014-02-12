@@ -10,6 +10,8 @@ import main.scala.MM._
 import main.scala.bprocesses.BProcess
 
 class ProcInvoker extends CtxElems {
+
+  override val isRequestable = true
   def invoke = {
 
     lazy val proc: Option[BProcess] = PrLink.links.find(_.from == Some(this)).get.to

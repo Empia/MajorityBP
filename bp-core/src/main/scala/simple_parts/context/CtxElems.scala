@@ -5,5 +5,6 @@ package main.scala.simple_parts.context
  *
  */
 trait CtxElems {
-  def invoke()
+  def invoke
+  val isRequestable = false
 }

@@ -11,37 +11,6 @@ object InvokeTracer {
    * Process instance
    */
   var runner: Option[BProcess] = None
-  /*
-   * Argument & Parameters Validation
-   */
-  import scala.util.Try
-  def isValid(b: ProcElems): Boolean = {
-    val t = Try(b.getClass.getMethod("arguments")).isSuccess
-    val u = Try(b.getClass.getMethod("params")).isSuccess
-    if (t) {
-      argValid(b)
-    } else if (u) {
-      paramValid(b)
-    } else {
-      true
-    }
-  }
-  def argValid(b: ProcElems): Boolean = {
-    val x = ArgLinkDispatch.from(b)
-    val y = x match {
-      case None ⇒ None
-      case _    ⇒ true
-    }
-    y != None
-  }
-  def paramValid(b: ProcElems): Boolean = {
-    val x = PLinkDispatch.from(b)
-    val y = x match {
-      case None ⇒ None
-      case _    ⇒ true
-    }
-    y != None
-  }
 
   /**
    * Executor
@@ -49,7 +18,7 @@ object InvokeTracer {
   def run_init(proc: BProcess) = {
     for (b ← proc.variety) {
       if (proc.state) {
-        if (isValid(b)) { // && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
+        if (InvokeChecker.isValid(b)) { // && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
           // also add to run_from method
           println("Try invoking the: the: " + b);
           b.invoke
@@ -97,17 +66,6 @@ object InvokeTracer {
       run_init(proc)
     }
   }
-  /**
-   * * Dimension
-   */
-  //def isFront(b: ProcElems): Boolean = {
-  //  val x = ArgLinkDispatch.from(b)
-  //  val y = x match {
-  //    case None ⇒ None
-  //    case _    ⇒ x.get.getClass.getSimpleName
-  //  }
-  //  y != "Dimension"
-  //}
 
   def run_dim(dim: Dimension, proc: BProcess) {
     for (b ← dim.container) {

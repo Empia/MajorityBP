@@ -1,5 +1,55 @@
 package main.scala.bprocesses
 
+import main.scala.simple_parts.process._
+
 object InvokeChecker {
+  /*
+   * Argument & Parameters Validation
+   */
+  import scala.util.Try
+  def isValid(b: ProcElems): Boolean = {
+    val t = Try(b.getClass.getMethod("arguments")).isSuccess
+    val u = Try(b.getClass.getMethod("params")).isSuccess
+    if (t) {
+      argValid(b)
+    } else if (u) {
+      paramValid(b)
+    } else {
+      true
+    }
+  }
+
+  //def isInputed(b: ProcElems): Boolean = {
+  //
+  //}
+  /**
+   * Dimension
+   */
+  //def isFront(b: ProcElems): Boolean = {
+  //  val x = ArgLinkDispatch.from(b)
+  //  val y = x match {
+  //    case None ⇒ None
+  //    case _    ⇒ x.get.getClass.getSimpleName
+  //  }
+  //  y != "Dimension"
+  //}
+
+  def argValid(b: ProcElems): Boolean = {
+    val x = ArgLinkDispatch.from(b)
+    val y = x match {
+      case None ⇒ None
+      case _    ⇒ true
+    }
+    y != None
+  }
+
+  def paramValid(b: ProcElems): Boolean = {
+    val x = PLinkDispatch.from(b)
+    val y = x match {
+      case None ⇒ None
+      case _    ⇒ true
+    }
+    y != None
+  }
 
 }

@@ -10,7 +10,7 @@ object Main extends App {
   //Tryin2.argparams
   //Tryin3.frame
   //Tryin3.multiple_arg_p
-  Tryin3.invoke_block
+  Tryin3.inputed
   //  println(Calculator("5" + "*" + "10"))
   //  println(Calculator("5 * 10").getClass)
 }
@@ -55,14 +55,18 @@ object Tryin3 {
         //new Constant[Int](1001),
         //new Constant[Int](1001),
         new Constant[Boolean](true),
-        //new Input(input),
+        //new Input(input),,
         //new Checker,
         new Result, // must be true
         new Constant[Boolean](false),
-        new InputPlaceholder)
+        new InputPlaceholder,
+        new Dimension)
     }
     val frame = new Frame("Ramka")
     frame.init
+
+    // Input
+    // Input null -> Process doest start
 
     new PrLink(Option(xx), Option(proc))
     // lazy val proc: BProcess = arguments.productIterator.toList.head.asInstanceOf[BProcess]
@@ -142,6 +146,34 @@ object Tryin3 {
     println(context.subjects.head.subj_procs)
     println("********")
     println((new Result).isOptionalArg)
+  }
+
+  def inputed {
+    import main.scala.simple_parts.context._
+
+    val xx = new ProcInvoker
+    val proc = new BProcess(List("Stan", "Will"))
+    proc.push {
+      ListBuffer[ProcElems](
+        //new Note("Test note"),
+        //new Constant[Int](1001),
+        //new Constant[Int](1001),
+        new Constant[Boolean](true),
+        //new Input(input),
+        //new Checker,
+        new Result, // must be true
+        new Constant[Boolean](false),
+        new InputPlaceholder)
+    }
+    val frame = new Frame("Ramka")
+    frame.init
+
+    new PrLink(Option(xx), Option(proc))
+    // lazy val proc: BProcess = arguments.productIterator.toList.head.asInstanceOf[BProcess]
+    // InvokeTracer.run_proc(proc)
+    println(new ProcInvoker)
+    println("request")
+    println(new Request(xx))
   }
 }
 
