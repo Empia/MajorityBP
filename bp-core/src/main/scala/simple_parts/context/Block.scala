@@ -13,11 +13,15 @@ import main.scala.bprocesses.BProcess
 class ProcInvoker extends CtxElems {
 
   override val isRequestable = true
-  def invoke = {
 
-    lazy val proc: Option[BProcess] = PrLink.links.find(_.from == Some(this)).get.to
+  def fromReq(frame: Frame) = {
+    lazy val proc: Option[BProcess] = frame.links.find(_.from == Some(this)).get.to
     if (InvokeChecker.isInputed(proc.get)) {
       InvokeTracer.run_proc(proc.get)
     } else { println("Error: input missed") }
+  }
+
+  def invoke = {
+
   }
 }

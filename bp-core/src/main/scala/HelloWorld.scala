@@ -11,12 +11,54 @@ object Main extends App {
   //Tryin3.frame
   //Tryin3.multiple_arg_p
   Tryin3.inputed
+  Tryin3.invoke_block
   //  println(Calculator("5" + "*" + "10"))
   //  println(Calculator("5 * 10").getClass)
 }
 object Tryin3 {
   import main.scala.MM._
   import scala.collection.mutable._
+
+  def invoke_block {
+    import main.scala.simple_parts.context._
+    val proc = new BProcess(List("Stan", "Will"))
+    proc.push {
+      ListBuffer[ProcElems](
+        //new Note("Test note"),
+        //new Constant[Int](1001),
+        //new Constant[Int](1001),
+        new Constant[Boolean](true),
+        //new Input(input),,
+        //new Checker,
+        new Result, // must be true
+        new Constant[Boolean](false),
+        new InputPlaceholder,
+        new Dimension)
+    }
+    val frame = new Frame("Ramka")
+    frame.init
+
+    val xx = new ProcInvoker
+    frame.container += xx
+    frame.container += proc
+
+    // Input
+    // Input null -> Process doest start
+
+    new PrLink(Option(xx), Option(proc))
+    frame.link_push(
+      new PrLink(Option(frame.container(0).asInstanceOf[ProcInvoker]),
+        Option(frame.container(1).asInstanceOf[BProcess])))
+
+    println("frame links")
+    println(frame.links)
+    println(frame.container)
+    // lazy val proc: BProcess = arguments.productIterator.toList.head.asInstanceOf[BProcess]
+    // InvokeTracer.run_proc(proc)
+    println(new ProcInvoker)
+    println("request")
+    println(frame.request(new Request(frame.container(0).asInstanceOf[ProcInvoker])))
+  }
 
   def multiple_arg_p {
     val context = new StructContext("Accounting")
@@ -43,37 +85,6 @@ object Tryin3 {
     proc.arg_push(new ArgLink(Option(proc.variety(2)), Option(proc.variety(1))))
     println("arrrgs")
     InvokeTracer.run_proc(proc)
-  }
-  def invoke_block {
-    import main.scala.simple_parts.context._
-
-    val xx = new ProcInvoker
-    val proc = new BProcess(List("Stan", "Will"))
-    proc.push {
-      ListBuffer[ProcElems](
-        //new Note("Test note"),
-        //new Constant[Int](1001),
-        //new Constant[Int](1001),
-        new Constant[Boolean](true),
-        //new Input(input),,
-        //new Checker,
-        new Result, // must be true
-        new Constant[Boolean](false),
-        new InputPlaceholder,
-        new Dimension)
-    }
-    val frame = new Frame("Ramka")
-    frame.init
-
-    // Input
-    // Input null -> Process doest start
-
-    new PrLink(Option(xx), Option(proc))
-    // lazy val proc: BProcess = arguments.productIterator.toList.head.asInstanceOf[BProcess]
-    // InvokeTracer.run_proc(proc)
-    println(new ProcInvoker)
-    println("request")
-    println(new Request(xx))
   }
 
   def frame {

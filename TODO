@@ -1,4 +1,13 @@
-  /** 2 Books read **/
+  [* Multiple parrams         isList
+  [* Condition multiple args  isList
+
+http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
+http://www.activiti.org/userguide/index.html#bpmnTask
+http://www.activiti.org/userguide/index.html#bpmnGateways
+
+http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
+
+
   * Slick integration
   * DB Scheme
   * API End-Point
@@ -6,39 +15,40 @@
   * Resources 
   || Employees, Clients, Groups 
   || Process owning, viewers, access
-  * ResAct blocks - optional (nff)
-  * Collab & sharing?
+  
+  * Frame autocreating(for ctxelems)
+  * ResAct blocks
+  * Collab & sharing
+  * Invoke card(Reporter)
+  * Datablock?
 
-  [* Multiple parrams         isList
-  [* Condition multiple args  isList
-
+  * Templates BP, ctx, sbj?
+  * scope ctx, bp ?
 
   * Graph.js
-  * Invoke card(Reporter)
   [* CHAIN Invoke -> Process -> Process ]
   * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
-  * Input block while proc/context running(wait for input if it paused)
-  * Return in ProcElems [ Block that return blocks and arg&params ]
   * Return in BProcess  [ Blocks that comes after process invoked ]
   * Link block[Input, return, ...]
+  * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents
+  /** 2 Books read **/
+  * Fully featured Resources
+  
 
 ____
 /Final/
 
-  * Observer block
+  * Input block while proc/context running(wait for input if it paused)
+  * Return in ProcElems [ Block that return blocks and arg&params ]
   * Merchant?
-  * Datablock?
   * Bridge
-  * Fully featured Resources
   * Behav Resources
   * Behav model methods and elements
-  * Templates BP, ctx, sbj?
   * Neo4J integration?
-  * scope ctx, bp ?
   * Complex block
   * Block register / Elem -> Block conversion
   * Sandbox for testing external Blocks
   * Service
   * RPC
-  * Regressor-core
   * Zappier
+  * Regressor-core

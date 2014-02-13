@@ -1,4 +1,5 @@
 package main.scala.simple_parts.context
+import main.scala.MM.Frame
 
 /**
  * @author Sobolev
@@ -6,5 +7,6 @@ package main.scala.simple_parts.context
  */
 trait CtxElems {
   def invoke
+  def fromReq(f: Frame)
   val isRequestable = false
 }

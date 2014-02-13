@@ -4,8 +4,9 @@ import main.scala.simple_parts.process._
 import main.scala.simple_parts.process.control._
 import main.scala.simple_parts.process.data._
 import scala.collection.mutable._
+import main.scala.utils.BPLinkContainer
 
-class BProcess(resource: List[String]) {
+class BProcess(resource: List[String]) extends BPLinkContainer {
   /**
    *  State of process
    */
@@ -14,22 +15,6 @@ class BProcess(resource: List[String]) {
   var status = "Stop"
   var variety: ListBuffer[ProcElems] = ListBuffer()
   val logger = new BPLogger
-  /**
-   *  Links || Arguments, Parameters
-   */
-
-  var arguments: ListBuffer[ArgLink] = ListBuffer()
-  var params: ListBuffer[PLink] = ListBuffer()
-
-  def arg_push(x: ArgLink) = arguments += x
-  def param_push(x: PLink) = params += x
-
-  def showArguments = arguments.map(s ⇒ s.from.toString
-    + Console.RED + " -> " + Console.WHITE +
-    s.to.toString)
-  def showParameters = params.map(s ⇒ s.from.toString
-    + Console.RED + " -> " + Console.WHITE +
-    s.to.toString)
 
   /**
    *  Process collection methods
@@ -63,6 +48,7 @@ class BProcess(resource: List[String]) {
   def push(f: ⇒ ListBuffer[ProcElems]) = {
     pushit(f)
   }
+
   /**
    * Process initialization
    */
@@ -89,10 +75,10 @@ class BProcess(resource: List[String]) {
     } else { "Blank process" }
   }
 
-  //def return = {
-  //  // TODO
-  //  // Return List[ProcElems]
-  //  // Return List[Args, Params]
+  //def returning = {
+  // find return block
+  // execute return block
+  // push complete result 
   //}
 
 }

@@ -16,7 +16,6 @@ import main.scala.simple_parts.context._
 class PrLink(start: Option[CtxElems], end: Option[BProcess]) {
   def from: Option[CtxElems] = this.start
   def to: Option[BProcess] = this.end
-  PrLink.links = PrLink.links :+ this
 }
 object PrLink {
   var links: List[PrLink] = List()
