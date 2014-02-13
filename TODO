@@ -1,3 +1,13 @@
+  * Fill through request
+  * Refactor
+  * Create test
+  * Frame autocreating(for ctxelems)
+  * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  [* CHAIN Invoke -> Process -> Process ]
+
+
+
+  
   [* Multiple parrams         isList
   [* Condition multiple args  isList
 
@@ -16,18 +26,16 @@ http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
   || Employees, Clients, Groups 
   || Process owning, viewers, access
   
-  * Frame autocreating(for ctxelems)
   * ResAct blocks
   * Collab & sharing
   * Invoke card(Reporter)
   * Datablock?
+  * Document block
 
   * Templates BP, ctx, sbj?
   * scope ctx, bp ?
 
   * Graph.js
-  [* CHAIN Invoke -> Process -> Process ]
-  * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
   * Return in BProcess  [ Blocks that comes after process invoked ]
   * Link block[Input, return, ...]
   * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents
