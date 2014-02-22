@@ -5,18 +5,27 @@ import main.scala.simple_parts.process._
 import main.scala.simple_parts.process.control._
 import main.scala.simple_parts.process.data._
 import main.scala.utils._
+import main.scala.maps.contexts._
+import main.scala.bprocesses.links._
 
 object Main extends App {
   //Tryin2.argparams
-  //Tryin3.frame
-  //Tryin3.multiple_arg_p
-  Tryin3.inputed
+  Tryin3.frame
   Tryin3.invoke_block
+  //Tryin3.multiple_arg_p
+  ///////////Tryin3.inputed
+  ///////////Tryin3.invoke_block
   //  println(Calculator("5" + "*" + "10"))
   //  println(Calculator("5 * 10").getClass)
 }
+
+
+
+
+
+
 object Tryin3 {
-  import main.scala.MM._
+  import main.scala.maps._
   import scala.collection.mutable._
 
   def invoke_block {
@@ -33,7 +42,7 @@ object Tryin3 {
         new Result, // must be true
         new Constant[Boolean](false),
         new InputPlaceholder,
-        new Dimension)
+        new Space)
     }
     val frame = new Frame("Ramka")
     frame.init
@@ -55,9 +64,12 @@ object Tryin3 {
     println(frame.container)
     // lazy val proc: BProcess = arguments.productIterator.toList.head.asInstanceOf[BProcess]
     // InvokeTracer.run_proc(proc)
+    val inblock: ListBuffer[ProcElems] = ListBuffer(new Constant[Boolean](false))
+
+    //frame.container(1).asInstanceOf[BProcess].fill(inblock)
     println(new ProcInvoker)
     println("request")
-    println(frame.request(new Request(frame.container(0).asInstanceOf[ProcInvoker])))
+    println(frame.request(new Request(frame.container(0).asInstanceOf[ProcInvoker], inblock)))
   }
 
   def multiple_arg_p {
@@ -187,7 +199,7 @@ object Tryin3 {
     println(new Request(xx))
   }
 }
-
+/*
 object Tryin2 {
   import util.Random
   import scala.collection.mutable._
@@ -230,3 +242,10 @@ object Tryin2 {
     InvokeTracer.run_proc(proc)
   }
 }
+*/
+
+
+
+
+
+

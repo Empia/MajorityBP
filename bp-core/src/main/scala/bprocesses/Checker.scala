@@ -1,6 +1,7 @@
 package main.scala.bprocesses
 
 import main.scala.simple_parts.process._
+import main.scala.bprocesses.links._
 
 object InvokeChecker {
   /*
@@ -10,20 +11,20 @@ object InvokeChecker {
   def isValid(b: ProcElems): Boolean = {
     val t = Try(b.getClass.getMethod("arguments")).isSuccess
     val u = Try(b.getClass.getMethod("params")).isSuccess
-    if (t) {
-      argValid(b)
-    } else if (u) {
-      paramValid(b)
-    } else {
+    //if (t) {
+    //  argValid(b)
+    //} else if (u) {
+    //  paramValid(b)
+    //} else {
       true
-    }
+    //}
   }
 
   def isInputed(bp: BProcess) = {
     val teta = (bp.inputs).map(i ⇒ i.isFilled)
     teta.foldLeft(true)(_ && _)
   }
-
+/**
   def argValid(b: ProcElems): Boolean = {
     val x = ArgLinkDispatch.from(b)
     val y = x match {
@@ -41,6 +42,8 @@ object InvokeChecker {
     }
     y != None
   }
+  
+  */
   /**
    * Dimension
    */

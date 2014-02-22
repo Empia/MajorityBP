@@ -1,8 +1,7 @@
-package main.scala.MM
-
+package main.scala.maps
 import scala.collection.mutable._
 import main.scala.utils.FrameLinkContainer
-import main.scala.MM.Request
+import main.scala.maps.Request
 
 class Frame(title: String) extends FrameLinkContainer[PrLink] {
   var container: ListBuffer[Any] = ListBuffer()

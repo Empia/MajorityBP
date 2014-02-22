@@ -13,6 +13,10 @@ object Settings {
     organization  := "minority-bp",
     scalaVersion  := "2.10.3",
     resolvers    ++= Dependencies.resolutionRepos,
+    //resolvers    ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo),
+    resolvers ++= Seq("Maven Central Server" at "http://repo1.maven.org/maven2"),
+    //resolvers += Resolver.sonatypeRepo("snapshots"),
+    
     fork in run   := true,
     scalacOptions := Seq(
       "-encoding",
@@ -35,7 +39,7 @@ object Settings {
     }
     ) ++ releaseSettings
 
-  
+    scalacOptions in Test ++= Seq("-Yrangepos")
   
   import spray.revolver.RevolverPlugin.Revolver._
   lazy val revolverSettings = Revolver.settings ++ seq(reJRebelJar := "~/.jrebel/jrebel.jar")
@@ -49,8 +53,8 @@ object Settings {
   import scalariform.formatter.preferences._
   def formattingPreferences =
     FormattingPreferences()
-      .setPreference(RewriteArrowSymbols, true)
-      .setPreference(AlignParameters, true)
-      .setPreference(AlignSingleLineCaseStatements, true)
-      .setPreference(DoubleIndentClassDeclaration, true)
+      .setPreference(RewriteArrowSymbols, false)
+      .setPreference(AlignParameters, false)
+      .setPreference(AlignSingleLineCaseStatements, false)
+      .setPreference(DoubleIndentClassDeclaration, false)
 }

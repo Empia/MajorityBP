@@ -1,7 +1,7 @@
 package main.scala.bprocesses
 
 import main.scala.simple_parts.process._
-import main.scala.utils.Dimension
+import main.scala.utils.Space
 /**
  * Ivoking process
  */
@@ -14,6 +14,10 @@ object InvokeTracer {
 
   /**
    * Executor
+   */
+
+  /**
+   *  Checker methods goes here
    */
   def run_init(proc: BProcess) = {
     InvokeChecker.isInputed(proc)
@@ -70,7 +74,7 @@ object InvokeTracer {
   /**
    * Dimensions (Need to refactor)
    */
-  def run_dim(dim: Dimension, proc: BProcess) {
+  def run_dim(dim: Space, proc: BProcess) {
     for (b ← dim.container) {
       if (proc.state) {
         println("Invoking the: " + b);

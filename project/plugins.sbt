@@ -2,6 +2,8 @@ resolvers += "Sonatype snapshots" at "http://oss.sonatype.org/content/repositori
 
 resolvers += "Kamon Releases" at "http://repo.kamon.io"
 
+resolvers += "Maven Central" at "http://repo1.maven.org/maven2"
+
 resolvers += "sbt-taglist-releases" at "http://johanandren.github.com/releases/"
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-atmos" % "0.3.2")

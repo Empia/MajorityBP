@@ -1,58 +1,72 @@
-  * Fill through request
-  * Refactor
-  * Create test
-  * Frame autocreating(for ctxelems)
-  * Assembly [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
-  [* CHAIN Invoke -> Process -> Process ]
 
+  * main.scala.maps.contexts.Subject  Frame add by two methods
+  * main.scala.utils.Space || Make support for frame
+  * main.scala.utils.Space || Paper work
+  * main.scala.bprocesses.dim_run Refactor
+  * main.scala.bprocesses.isFront 
+  * main.scala.bprocesses.Invoke FIX THAT
 
-
-  
+Parts
+  * simple_parts
+  * SubBrick 
+  * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  * main.scala.utils.LinkContainer || Make plural/singular link
+  * main.scala.maps.FrameLink ctx-ctx links
   [* Multiple parrams         isList
   [* Condition multiple args  isList
 
-http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
-http://www.activiti.org/userguide/index.html#bpmnTask
-http://www.activiti.org/userguide/index.html#bpmnGateways
+  * checker for arguments and params [ ]
+  * Arg params is present if isOptional = false !!! checker
 
-http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
+  [* CHAIN Invoke -> Process -> Process ]
+  * Create test
 
 
+<DB>
   * Slick integration
   * DB Scheme
   * API End-Point
   * Angular app
+  
   * Resources 
   || Employees, Clients, Groups 
   || Process owning, viewers, access
   
   * ResAct blocks
-  * Collab & sharing
-  * Invoke card(Reporter)
   * Datablock?
-  * Document block
-
-  * Templates BP, ctx, sbj?
   * scope ctx, bp ?
 
-  * Graph.js
-  * Return in BProcess  [ Blocks that comes after process invoked ]
-  * Link block[Input, return, ...]
-  * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents
-  /** 2 Books read **/
-  * Fully featured Resources
+  * Invoke card(Reporter)
   
+  * Return in ProcElems [ Block that return blocks and arg&params ]
+  * Input block while proc/context running(wait for input if it paused)
+  * Return in BProcess  [ Blocks that comes after process invoked ]
+
+
+
+  * Collab & sharing
+  * Graph.js
+  /** 2 Books read **/
+  http://www.mulesoft.com/platform/soa
+  http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
+  http://www.activiti.org/userguide/index.html#bpmnTask
+  http://www.activiti.org/userguide/index.html#bpmnGateways
+  http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
+
 
 ____
 /Final/
+  * Link block[Input, return, ...]
+  * K-V Properties for resources
+  * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents
 
-  * Input block while proc/context running(wait for input if it paused)
-  * Return in ProcElems [ Block that return blocks and arg&params ]
   * Merchant?
   * Bridge
   * Behav Resources
   * Behav model methods and elements
+  * Templates BP, ctx, sbj?
   * Neo4J integration?
+  * Document block
   * Complex block
   * Block register / Elem -> Block conversion
   * Sandbox for testing external Blocks

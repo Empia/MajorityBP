@@ -8,6 +8,7 @@ import main.scala.bprocesses.InvokeTracer
 import main.scala.utils.ArgumentDispatch
 import main.scala.utils.ParamDispatch
 import scala.util.Try
+import main.scala.bprocesses.links.ArgLinkDispatch
 
 class Brick() extends ProcElems {
 

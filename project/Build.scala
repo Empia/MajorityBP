@@ -12,18 +12,18 @@ object Build extends Build {
   lazy val root = Project("root", file("."))
     .aggregate(bpCore, bpSpray)
     .settings(basicSettings: _*)
-    .settings(formatSettings: _*)
+    //.settings(formatSettings: _*)
     .settings(noPublishing: _*)
     .settings(revolverSettings: _*)
 
 
   lazy val bpCore = Project("bp-core", file("bp-core"))
     .settings(basicSettings: _*)
-    .settings(formatSettings: _*)
+    //.settings(formatSettings: _*)
     .settings(revolverSettings: _*)
     .settings(
       libraryDependencies ++=
-        List(akkaActor, sprayCan, sprayClient, sprayRouting, hdrHistogram, sprayJson)) 
+        List(akkaActor, sprayCan, scalatest, sprayClient, sprayRouting, hdrHistogram, sprayJson)) 
         //compile(akkaActor, sprayCan, sprayClient, sprayRouting) ++
         //provided(logback) ++
         //test(scalatest, akkaTestKit, sprayTestkit, akkaSlf4j, logback))
@@ -31,7 +31,7 @@ object Build extends Build {
 
   lazy val bpSpray = Project("bp-spray", file("bp-spray"))
     .settings(basicSettings: _*)
-    .settings(formatSettings: _*)
+    //.settings(formatSettings: _*)
     .settings(revolverSettings: _*)
     .settings(
       libraryDependencies ++=
