@@ -1,25 +1,19 @@
-
-  * main.scala.maps.contexts.Subject  Frame add by two methods
-  * main.scala.utils.Space || Make support for frame
-  * main.scala.utils.Space || Paper work
+  * Space
+  * * SubBrick 
+  * * Refactor old elements
   * main.scala.bprocesses.dim_run Refactor
   * main.scala.bprocesses.isFront 
   * main.scala.bprocesses.Invoke FIX THAT
 
-Parts
-  * simple_parts
-  * SubBrick 
-  * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+
+
   * main.scala.utils.LinkContainer || Make plural/singular link
-  * main.scala.maps.FrameLink ctx-ctx links
   [* Multiple parrams         isList
-  [* Condition multiple args  isList
 
-  * checker for arguments and params [ ]
-  * Arg params is present if isOptional = false !!! checker
-
-  [* CHAIN Invoke -> Process -> Process ]
-  * Create test
+  * main.scala.maps.FrameLink ctx-ctx links
+  * * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  * * main.scala.utils.Space || Make support for frame
+  * * * [* CHAIN Invoke -> Process -> Process ]
 
 
 <DB>
@@ -27,25 +21,19 @@ Parts
   * DB Scheme
   * API End-Point
   * Angular app
+  * придумал решение, при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш // elements_tracer
+  * ResAct blocks
+  * Collection
+  * Invoke card(Reporter)
   
   * Resources 
   || Employees, Clients, Groups 
-  || Process owning, viewers, access
   
-  * ResAct blocks
-  * Datablock?
-  * scope ctx, bp ?
-
-  * Invoke card(Reporter)
-  
+  * Condition
   * Return in ProcElems [ Block that return blocks and arg&params ]
-  * Input block while proc/context running(wait for input if it paused)
-  * Return in BProcess  [ Blocks that comes after process invoked ]
 
 
 
-  * Collab & sharing
-  * Graph.js
   /** 2 Books read **/
   http://www.mulesoft.com/platform/soa
   http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
@@ -55,10 +43,21 @@ Parts
 
 
 ____
+  * Create test
+  * checker for arguments and params [ ]
+  || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
+  * Datablock?
+  * scope ctx, bp ?
+  * Input block while proc/context running(wait for input if it paused)
+  * Flow tracker
+  * Return in BProcess  [ Blocks that comes after process invoked ]
+  * Collab & sharing
+  * Graph.js
 /Final/
   * Link block[Input, return, ...]
   * K-V Properties for resources
   * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents
+  * Triggers(that runs something just from template and request[POST /auth/token?acton=...])
 
   * Merchant?
   * Bridge

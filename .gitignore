@@ -21,6 +21,7 @@ dist/*
 target/
 lib_managed/
 src_managed/
+demo/
 
 .settings/*
 *.settings/

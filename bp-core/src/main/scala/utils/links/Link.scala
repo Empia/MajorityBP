@@ -9,12 +9,18 @@ import scala.util.Try
 trait LinkSearcher[LinkType] { self ⇒
 
 
-  def links = PLinkDispatch.from(this)
+ // def links = PLinkDispatch.from(this)
   def isLinksExist = self.links.isDefined
+
+
+
+  /***
+  *  Multiple handling
+  ***/
 
   //def isMultiple = Try(arguments.getClass.getMethod("head")).isSuccess
   val isLinkList = false
-  val isOptionalLink = false
+
 
 
   def to(target: Any) = {

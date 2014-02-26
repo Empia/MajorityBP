@@ -21,7 +21,7 @@ object BPLink extends BPLinkContainer[BPLink] {
 object BPLinkSearcher extends LinkSearcher[BPLink] {
 
 }
-
+/*
 object BPLinkDispatch {
   def proc = InvokeTracer.runner.get
   def apply(target: Any) = println(target.getClass)
@@ -46,3 +46,4 @@ object BPLinkDispatch {
     isMultiple(target)
   }
 }
+*/

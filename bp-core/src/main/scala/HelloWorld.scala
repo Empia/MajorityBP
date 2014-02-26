@@ -1,17 +1,17 @@
 package main.scala
 
 import main.scala.bprocesses._
-import main.scala.simple_parts.process._
-import main.scala.simple_parts.process.control._
-import main.scala.simple_parts.process.data._
+//import main.scala.simple_parts.process._
+//import main.scala.simple_parts.process.control._
+//import main.scala.simple_parts.process.data._
 import main.scala.utils._
 import main.scala.maps.contexts._
 import main.scala.bprocesses.links._
 
 object Main extends App {
   //Tryin2.argparams
-  Tryin3.frame
-  Tryin3.invoke_block
+  //Tryin3.frame
+  //Tryin3.invoke_block
   //Tryin3.multiple_arg_p
   ///////////Tryin3.inputed
   ///////////Tryin3.invoke_block
@@ -23,7 +23,7 @@ object Main extends App {
 
 
 
-
+/*
 object Tryin3 {
   import main.scala.maps._
   import scala.collection.mutable._
@@ -199,6 +199,8 @@ object Tryin3 {
     println(new Request(xx))
   }
 }
+*/
+
 /*
 object Tryin2 {
   import util.Random

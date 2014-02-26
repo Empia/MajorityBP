@@ -3,7 +3,6 @@ package main.scala.bprocesses
 import main.scala.simple_parts.process._
 import main.scala.simple_parts.process.control._
 import main.scala.simple_parts.process.data._
-import scala.collection.mutable._
 import main.scala.utils.BPLinkContainer
 
 class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
@@ -14,7 +13,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
   var state = true
   var step = 0
   var status = "Stop"
-  var variety: ListBuffer[ProcElems] = ListBuffer()
+  var variety: Array[ProcElems] = Array.empty
   val logger = new BPLogger
 
 /**
@@ -33,7 +32,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
 /**
  * Input
  */
-  def fill(in: ListBuffer[ProcElems]) = {
+  def fill(in: Array[ProcElems]) = {
     val z = variety.collect { case placeholder: InputPlaceholder ⇒ placeholder }
     for (x ← z; y ← in) yield (x.push(y))
   }
@@ -41,11 +40,11 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
 /**
  * Push elements to process
  */
-  def pushit(target: ListBuffer[ProcElems]) = {
+  def pushit(target: Array[ProcElems]) = {
     variety = variety ++ target
   }
 
-  def push(f: ⇒ ListBuffer[ProcElems]) = {
+  def push(f: ⇒ Array[ProcElems]) = {
     pushit(f)
   }
 

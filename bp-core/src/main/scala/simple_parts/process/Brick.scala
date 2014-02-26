@@ -5,10 +5,9 @@
 
 package main.scala.simple_parts.process
 import main.scala.bprocesses.InvokeTracer
-import main.scala.utils.ArgumentDispatch
-import main.scala.utils.ParamDispatch
+import main.scala.utils.links.Link
 import scala.util.Try
-import main.scala.bprocesses.links.ArgLinkDispatch
+//import main.scala.bprocesses.links.ArgLinkDispatch
 
 class Brick() extends ProcElems {
 
@@ -16,6 +15,6 @@ class Brick() extends ProcElems {
   def invoke {
     InvokeTracer.runner.get.logger.log("invoked brick")
   }
-  def linked_to = ArgLinkDispatch(this)
+  //def linked_to = ArgLinkDispatch(this)
 }
 

@@ -4,19 +4,47 @@ import main.scala.simple_parts.process._
 import main.scala.bprocesses.InvokeTracer
 import main.scala.bprocesses.links._
 
-class Space(
-  var container: ListBuffer[ProcElems] = ListBuffer())
+class Space
     extends ProcElems {
-  def pushit(target: ListBuffer[ProcElems]) {
+  
+  private var state = true
+ 
+// init
+
+
+// subbricks
+  // Array[SubBrick]
+      // add SubBrick = argument, parameter [fetch arg outside space, and betwen space]
+      // SubBrick return results & return result
+
+
+// container
+  var container: Array[ProcElems] = Array.empty
+
+  def pushit(target: Array[ProcElems]) {
     container = container ++ target
   }
 
-  def push(f: ⇒ ListBuffer[ProcElems]) = {
+  def push(f: ⇒ Array[ProcElems]) = {
     pushit(f)
   }
 
-  def invoke = {
-    pushit(ArgLinkDispatch.to(this).map(_.get).to[ListBuffer])
-    InvokeTracer.run_dim(this, InvokeTracer.runner.get)
-  }
+
+
+// expandings
+  // by default return last element of container(withoud call on it return)
+  
+
+
+
+// easy access[read, write] from BProcess (3,1 4,1 5,1)
+
+
+
+
+// runer
+ // def invoke = {
+ //   pushit(ArgLinkDispatch.to(this).map(_.get).to[ListBuffer])
+ //   InvokeTracer.run_dim(this, InvokeTracer.runner.get)
+ // }
 }

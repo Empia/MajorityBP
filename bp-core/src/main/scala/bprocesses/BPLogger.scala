@@ -1,7 +1,6 @@
 package main.scala.bprocesses
 
 import main.scala.simple_parts.process._
-import scala.collection.mutable._
 
 /**
  * BPLogger
@@ -9,7 +8,7 @@ import scala.collection.mutable._
 
 class BPLogger {
   type Result = String
-  var logs: ListBuffer[Result] = ListBuffer()
+  var logs: Array[Result] = Array.empty
   def log(result: Result) = {
     logs = logs :+ result
   }
