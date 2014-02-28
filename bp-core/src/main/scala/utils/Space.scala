@@ -8,10 +8,12 @@ class Space
     extends ProcElems {
   
   private var state = true
+  var dimension = 1
+  // increment this
  
 // init
-def invoke {
-  
+override def init {
+
 }
 
 // subbricks
@@ -45,8 +47,8 @@ def invoke {
 
 
 // runer
- // def invoke = {
- //   pushit(ArgLinkDispatch.to(this).map(_.get).to[ListBuffer])
- //   InvokeTracer.run_dim(this, InvokeTracer.runner.get)
- // }
+  def invoke = {
+   //   pushit(ArgLinkDispatch.to(this).map(_.get).to[ListBuffer])
+   //   InvokeTracer.run_dim(this, InvokeTracer.runner.get)
+  }
 }

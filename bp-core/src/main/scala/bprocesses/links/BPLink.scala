@@ -10,19 +10,37 @@ import main.scala.simple_parts.process.ProcElems
 /**
  * Business Process Links
  */
-class BPLink(start: Option[ProcElems], end: Option[ProcElems], nested: BProcess, multiple: Boolean = false) {
+class BPLink(start: Option[ProcElems], 
+             end: Option[ProcElems], 
+             nested: BProcess, 
+             multiple: Boolean = false) 
+{
   def from: Option[ProcElems] = this.start
   def to: Option[ProcElems] = this.end
+  def isMultiple = this.multiple
+  def getBP = this.nested
   //BPLink.links = BPLink.links :+ this
 }
-
-object BPLink extends BPLinkContainer[BPLink] {
-
-}
-
 object BPLinkSearcher extends LinkSearcher[BPLink] {
+  // multiple
+  def get_from(link: BPLink) {
+    if (link.isMultiple) {
+      // iterate over process
+      println(link.getBP.links)
+    }
+    else {
+      // show only to method
+      link.to
+    }
+  }
+}
+
+object BPLinks extends BPLinkContainer[BPLink] {
 
 }
+
+
+
 /*
 object BPLinkDispatch {
   def proc = InvokeTracer.runner.get

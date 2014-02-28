@@ -1,9 +1,9 @@
 package main.scala
 
 import main.scala.bprocesses._
-//import main.scala.simple_parts.process._
-//import main.scala.simple_parts.process.control._
-//import main.scala.simple_parts.process.data._
+import main.scala.simple_parts.process._
+import main.scala.simple_parts.process.control._
+import main.scala.simple_parts.process.data._
 import main.scala.utils._
 import main.scala.maps.contexts._
 import main.scala.bprocesses.links._
@@ -17,6 +17,17 @@ object Main extends App {
   ///////////Tryin3.invoke_block
   //  println(Calculator("5" + "*" + "10"))
   //  println(Calculator("5 * 10").getClass)
+  val proc = new BProcess(List("Stan", "Will"))
+  proc.push {
+        Array[ProcElems](
+        //new Note("Test note"),
+        //new Constant[Int](1001),
+        //new Constant[Int](1001),
+        new Constant[Boolean](true),
+        new Constant[Boolean](false))
+        }
+  val link = new BPLink(Option(proc.variety(0)), Option(proc.variety(1)), proc, true)      
+  BPLinkSearcher.get_from(link)
 }
 
 
