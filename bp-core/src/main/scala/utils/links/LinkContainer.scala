@@ -1,5 +1,4 @@
-package main.scala.utils
-import scala.collection.mutable._
+package main.scala.utils.links
 import main.scala.bprocesses._
 import main.scala.bprocesses.links._
 
@@ -8,23 +7,24 @@ trait LinkContainer {
   // Ctx Links
 }
 
-trait BPLinkContainer[T] extends LinkContainer {
-  var links: ListBuffer[T] = ListBuffer()
+trait BPLinkContainer[T] extends LinkContainer { self =>
+  
+  var links: Array[T] = _
 
-  def add_link(x: T) = links += x
+  def add_link(x: T) = links :+ x
 
-  def showLinks = links.map(s ⇒ s.from.toString
-    + Console.RED + " -> " + Console.WHITE +
-    s.to.toString)
+  //def showLinks = links.map(s ⇒ s.from.toString
+  //  + Console.RED + " -> " + Console.WHITE +
+  //  s.to.toString)
 
 }
 
 
-trait FrameLinkContainer[T] extends LinkContainer {
+trait FrameLinkContainer[T] extends LinkContainer { self =>
   
-  var links: ListBuffer[T] = ListBuffer()
+  var links: Array[T] = _
 
-  def add_link(x: T) = links += x
+  def add_link(x: T) = links :+ x
 
   //def showLinks = links.map(s ⇒ s.from.toString
   //  + Console.RED + " -> " + Console.WHITE +

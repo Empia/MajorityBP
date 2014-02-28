@@ -1,3 +1,4 @@
+/*
 package main.scala.simple_parts.process.control
 
 import main.scala.simple_parts.process.ProcElems
@@ -12,3 +13,4 @@ class Checker extends ProcElems with ArgumentDispatch with ParamDispatch {
 
   }
 }
+*/

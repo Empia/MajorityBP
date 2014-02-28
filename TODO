@@ -5,15 +5,17 @@
   * main.scala.bprocesses.isFront 
   * main.scala.bprocesses.Invoke FIX THAT
 
-
-
   * main.scala.utils.LinkContainer || Make plural/singular link
   [* Multiple parrams         isList
 
-  * main.scala.maps.FrameLink ctx-ctx links
-  * * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
-  * * main.scala.utils.Space || Make support for frame
-  * * * [* CHAIN Invoke -> Process -> Process ]
+  * Explicit expand for space
+  * checker for arguments and params [ ]
+  
+  * ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
+  * error handling [checker before invoke, brick error - though invoking]
+  * Collection
+  * Condition
+
 
 
 <DB>
@@ -21,38 +23,42 @@
   * DB Scheme
   * API End-Point
   * Angular app
-  * придумал решение, при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш // elements_tracer
   * ResAct blocks
-  * Collection
   * Invoke card(Reporter)
   
   * Resources 
   || Employees, Clients, Groups 
   
-  * Condition
-  * Return in ProcElems [ Block that return blocks and arg&params ]
 
 
 
   /** 2 Books read **/
-  http://www.mulesoft.com/platform/soa
-  http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
-  http://www.activiti.org/userguide/index.html#bpmnTask
-  http://www.activiti.org/userguide/index.html#bpmnGateways
-  http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
+    http://www.mulesoft.com/platform/soa
+    http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
+    http://www.activiti.org/userguide/index.html#bpmnTask
+    http://www.activiti.org/userguide/index.html#bpmnGateways
+    http://www.activiti.org/userguide/index.html#bpmnSubprocessAndCallActivity
 
 
 ____
   * Create test
-  * checker for arguments and params [ ]
+  
+  * main.scala.maps.FrameLink ctx-ctx links
+  ?* Return in ProcElems [ Block that return blocks and arg&params ]
+  * * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  * * main.scala.utils.Space || Make support for frame [Addition]
+  * * * [* CHAIN Invoke -> Process -> Process ]
+
   || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
-  * Datablock?
-  * scope ctx, bp ?
+  * Databrick pointers
+  * scope ctx, bp 
   * Input block while proc/context running(wait for input if it paused)
   * Flow tracker
   * Return in BProcess  [ Blocks that comes after process invoked ]
   * Collab & sharing
   * Graph.js
+
+
 /Final/
   * Link block[Input, return, ...]
   * K-V Properties for resources

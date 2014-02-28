@@ -5,7 +5,7 @@
 
 package main.scala.simple_parts.process
 import main.scala.bprocesses.InvokeTracer
-import main.scala.utils.links.Link
+import main.scala.utils.links.LinkSearcher
 import scala.util.Try
 //import main.scala.bprocesses.links.ArgLinkDispatch
 

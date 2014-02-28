@@ -1,3 +1,4 @@
+/*
 package main.scala.simple_parts.process.control
 
 import main.scala.simple_parts.process.ProcElems
@@ -23,3 +24,4 @@ class Condition(c: Boolean) extends ProcElems { // with ArgumentDispatch
   }
 
 }
+*/

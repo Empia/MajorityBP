@@ -1,12 +1,12 @@
 package main.scala.maps
-import main.scala.utils.FrameLinkContainer
-import main.scala.maps.Request
+import main.scala.utils.links.FrameLinkContainer
 
 class Frame(title: String = "") extends FrameLinkContainer[CtxLink] {
   
-  var container: Array[Any] = Array.empty
+  var container: Array[Any] = Array.empty[Any]
+  links = Array.empty[CtxLink]
 
-  def fill(x: Any) = container += x
+  def fill(x: Any) = container :+ x
 
   override def toString = s"Frame: $title Contains " + container.length
 

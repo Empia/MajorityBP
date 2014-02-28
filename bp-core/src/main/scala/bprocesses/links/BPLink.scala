@@ -3,6 +3,8 @@
  */
 package main.scala.bprocesses.links
 import main.scala.bprocesses.InvokeTracer
+import main.scala.bprocesses.BProcess
+import main.scala.utils.links._
 import main.scala.simple_parts.process.ProcElems
 
 /**

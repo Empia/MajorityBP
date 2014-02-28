@@ -10,17 +10,17 @@ import scala.collection.mutable._
 import main.scala.simple_parts.process._
 import main.scala.maps._
 import main.scala.bprocesses.BProcess
-import scala.collection.mutable._
 
 class ProcInvoker extends CtxElems {
 
   override val isRequestable = true
 
-  def fromReq(frame: Frame, input: ListBuffer[ProcElems] = ListBuffer.empty) = {
-    lazy val proc: Option[BProcess] = frame.links.find(_.from == Some(this)).get.to
+  def fromReq(frame: Frame, input: Array[ProcElems] = Array.empty) = {
 
+
+    lazy val proc: Option[BProcess] = frame.links.find(_.from == Some(this)).get.process
     // Fill input of process
-    if (input != None) {
+    if (input != None) { // != None
       println("##############")
       println(input)
       proc.get.fill(input)

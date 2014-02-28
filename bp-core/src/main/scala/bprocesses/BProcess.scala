@@ -3,7 +3,8 @@ package main.scala.bprocesses
 import main.scala.simple_parts.process._
 import main.scala.simple_parts.process.control._
 import main.scala.simple_parts.process.data._
-import main.scala.utils.BPLinkContainer
+import main.scala.bprocesses.links._
+import main.scala.utils.links.BPLinkContainer
 
 class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
 
@@ -13,7 +14,8 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
   var state = true
   var step = 0
   var status = "Stop"
-  var variety: Array[ProcElems] = Array.empty
+  var variety: Array[ProcElems] = Array.empty[ProcElems]
+  links = Array.empty[BPLink]
   val logger = new BPLogger
 
 /**

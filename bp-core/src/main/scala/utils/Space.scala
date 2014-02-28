@@ -10,7 +10,9 @@ class Space
   private var state = true
  
 // init
-
+def invoke {
+  
+}
 
 // subbricks
   // Array[SubBrick]

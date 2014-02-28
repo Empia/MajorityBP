@@ -1,6 +1,7 @@
 package main.scala.maps
 import main.scala.bprocesses.BProcess
 import main.scala.simple_parts.context._
+import main.scala.utils.links._
 
 /**
  * Frame Link
