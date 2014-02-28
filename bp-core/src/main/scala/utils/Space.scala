@@ -1,15 +1,15 @@
 package main.scala.utils
-import scala.collection.mutable._
 import main.scala.simple_parts.process._
 import main.scala.bprocesses.InvokeTracer
 import main.scala.bprocesses.links._
 
 class Space
-    extends ProcElems {
+    extends ProcElems 
+{
   
-  private var state = true
-  var dimension = 1
-  // increment this
+private var state = true
+var dimension = 1
+// increment this
  
 // init
 override def init {
@@ -17,7 +17,7 @@ override def init {
 }
 
 // subbricks
-  // Array[SubBrick]
+  var subbricks = Array.empty[SubBrick]
       // add SubBrick = argument, parameter [fetch arg outside space, and betwen space]
       // SubBrick return results & return result
 
