@@ -3,12 +3,12 @@ import main.scala.simple_parts.process._
 import main.scala.bprocesses.InvokeTracer
 import main.scala.bprocesses.links._
 
-class Space
+class Space(index: Int = 1)
     extends ProcElems 
 {
   
 private var state = true
-var dimension = 1
+var dim = this.index
 // increment this
  
 // init
@@ -20,16 +20,24 @@ override def init {
   var subbricks = Array.empty[SubBrick]
       // add SubBrick = argument, parameter [fetch arg outside space, and betwen space]
       // SubBrick return results & return result
+  def sb_pushit(target: Array[SubBrick]) {
+    container = container ++ target
+  }
+
+  def sb_push(f: ⇒ Array[SubBrick]) = {
+    pushit(f)
+  }
 
 
 // container
   var container: Array[ProcElems] = Array.empty
 
-  def pushit(target: Array[ProcElems]) {
+
+  def cont_pushin(target: Array[ProcElems]) {
     container = container ++ target
   }
 
-  def push(f: ⇒ Array[ProcElems]) = {
+  def cont_push(f: ⇒ Array[ProcElems]) = {
     pushit(f)
   }
 

@@ -5,6 +5,7 @@ import main.scala.simple_parts.process.control._
 import main.scala.simple_parts.process.data._
 import main.scala.bprocesses.links._
 import main.scala.utils.links.BPLinkContainer
+import main.scala.utils.Space
 
 class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
 
@@ -21,6 +22,9 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
 /**
  *  Process collection methods
  */
+  def fetchSpace(index: Int) = variety.collect { 
+    case space: Space => space }.find (space => space.dim == index)
+
   def blk = variety.collect { case block: Block ⇒ block }
   def rsl = variety.collect { case brick: Result ⇒ brick }
   def chk = variety.collect { case brick: Brick ⇒ brick }

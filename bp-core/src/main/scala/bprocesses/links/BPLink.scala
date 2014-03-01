@@ -30,7 +30,19 @@ object BPLinkSearcher extends LinkSearcher[BPLink] {
     }
     else {
       // show only to method
+      println(link.to)
       link.to
+    }
+  }
+  def get_to(link: BPLink) {
+    if (link.isMultiple) {
+      // iterate over process
+      println(link.getBP.links)
+    }
+    else {
+      // show only to method
+      println(link.from)
+      link.from
     }
   }
 }

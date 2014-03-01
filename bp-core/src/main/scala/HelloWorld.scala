@@ -24,10 +24,46 @@ object Main extends App {
         //new Constant[Int](1001),
         //new Constant[Int](1001),
         new Constant[Boolean](true),
-        new Constant[Boolean](false))
+        new Constant[Boolean](false),
+        new Brick(proc, 3),
+        new Space)
         }
   val link = new BPLink(Option(proc.variety(0)), Option(proc.variety(1)), proc, true)      
+  // getter for space
+  println(proc.variety(2).asInstanceOf[Brick].getSpace)
+  println(proc.fetchSpace(1)) // теперь можно спокойно работать с Пространством
+  // pusher to space
+  var conta = proc.fetchSpace(1).get.container 
+  conta = conta :+ new Constant[Boolean](false)
+  println(conta.length)
+  println(">>>>>>>")
+
+  val sp_link = new BPLink(Option(proc.variety(0)), Option(conta(0)), proc)
+  BPLinkSearcher.get_from(sp_link)
+  BPLinkSearcher.get_to(sp_link)
+  // subbrick
+  // container
+  // expand
+  /*
+    * main.scala.bprocesses.dim_run Refactor
+  * main.scala.bprocesses.Invoke FIX THAT
+  * main.scala.bprocesses.isFront 
+  * * SubBrick 
+  * * Refactor old elements with Brick and SubBrick
+  */
+
+
+  // Link Retriver
+  // a -> b
   BPLinkSearcher.get_from(link)
+  BPLinkSearcher.get_to(link)
+  // a -(m)> b
+  // c -(m)> b
+
+  /*
+   Argument
+  Parameter
+  */
 }
 
 

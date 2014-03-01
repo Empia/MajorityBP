@@ -1,20 +1,3 @@
-  * * SubBrick 
-  * * Refactor old elements
-  [* Multiple parrams         isList
-  /isOptionalLink/* checker for arguments and params [ ]
-
-
-  * main.scala.bprocesses.dim_run Refactor
-  * main.scala.bprocesses.Invoke FIX THAT
-  * main.scala.bprocesses.isFront 
-  * Explicit expand for space
-  
-  * ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
-  * error handling [checker before invoke, brick error - though invoking]
-  * Collection
-  * Condition
-  * * main.scala.utils.Space || Make support for frame [Addition]
-  * Flow tracker
 
 
 
@@ -41,6 +24,14 @@
 
 
 ____
+  * Flow tracker
+  * ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
+  * Explicit expand for space
+  * error handling [checker before invoke, brick error - though invoking]
+  /isOptionalLink/* checker for arguments and params [ ]
+  * Collection
+  * Condition
+  * * main.scala.utils.Space || Make support for frame [Addition]
   * Create test
   * main.scala.maps.FrameLink ctx-ctx links
   * * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
