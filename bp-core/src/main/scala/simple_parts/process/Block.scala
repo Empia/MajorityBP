@@ -12,12 +12,19 @@ import main.scala.bprocesses.InvokeTracer
  * @author Sobolev
  */
 
-class Block(b_type: String, title: String) extends ProcElems {
+class Block(b_type: String, title: String, val expander: Boolean = false) extends ProcElems {
 
   override def toString = s"Block: $title"
 
   override def invoke {
     InvokeTracer.runner.get.logger.log("invoked block")
+  }
+
+  def expand(obj: ProcElems) = {
+    if (expander) {
+      // Change element
+      // Change link of that element
+    }
   }
 }
 

@@ -3,13 +3,13 @@ import main.scala.simple_parts.process._
 import main.scala.bprocesses.InvokeTracer
 import main.scala.bprocesses.links._
 
-class Space(index: Int = 1)
+class Space(val order: Int, val index: Int) // increment index
     extends ProcElems 
 {
   
 private var state = true
-var dim = this.index
-// increment this
+var step = 0
+
  
 // init
 override def init {
@@ -25,7 +25,7 @@ override def init {
   }
 
   def sb_push(f: ⇒ Array[SubBrick]) = {
-    pushit(f)
+    sb_pushit(f)
   }
 
 
@@ -38,7 +38,7 @@ override def init {
   }
 
   def cont_push(f: ⇒ Array[ProcElems]) = {
-    pushit(f)
+    cont_pushin(f)
   }
 
 
@@ -46,13 +46,6 @@ override def init {
 // expandings
   // by default return last element of container(withoud call on it return)
   
-
-
-
-// easy access[read, write] from BProcess (3,1 4,1 5,1)
-
-
-
 
 // runer
   def invoke = {

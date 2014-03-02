@@ -7,30 +7,36 @@ import main.scala.bprocesses.links._
 import main.scala.utils.links.BPLinkContainer
 import main.scala.utils.Space
 
-class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
+class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPState with BPFlow{
 
 /**
- *  State of process
+ *  Field of process
  */
-  var state = true
-  var step = 0
-  var status = "Stop"
+
   var variety: Array[ProcElems] = Array.empty[ProcElems]
   links = Array.empty[BPLink]
   val logger = new BPLogger
+  val station = new BPStation(this)
 
 /**
  *  Process collection methods
  */
-  def fetchSpace(index: Int) = variety.collect { 
-    case space: Space => space }.find (space => space.dim == index)
 
   def blk = variety.collect { case block: Block ⇒ block }
   def rsl = variety.collect { case brick: Result ⇒ brick }
   def chk = variety.collect { case brick: Brick ⇒ brick }
   def cns = variety.collect { case const: Constant[_] ⇒ const }
   def inputs = variety.collect { case inputs: InputPlaceholder ⇒ inputs }
+  def isContain(el: ProcElems) = variety contains el
 
+  def getSpaceByIndex(index: Int) = variety.collect { 
+    case space: Space => space }.find (space => space.index == index)
+  def getSpaceByOrder(order: Int) = variety.collect { 
+    case space: Space => space }.find (space => space.order == order)
+  def getSpacesByOrder(order: Int) = variety.collect { 
+    case space: Space => space }.filter (space => space.order == order)
+  def getSpaceQuantity = variety.collect { 
+    case space: Space => space }.length
 /**
  *  Owners
  */
@@ -74,27 +80,8 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] {
   // def init 
 
 /**
- * Process flow
+ * Process returning
  */
-  def resume = {
-    state = true
-  }
-
-  def stop(b: ProcElems) = {
-    if (b.getClass.getSimpleName == "Stopper") {
-      state = false
-    }
-  }
-
-  def represent: String = {
-    if (variety.length > 0) {
-      var a = "\nProcess elements: \n\n***************\n"
-      for (b ← variety) {
-        a = a + b.toString + "\n" + "****************\n"
-      }
-      a
-    } else { "Blank process" }
-  }
 
   //def returning = {
   // find return block

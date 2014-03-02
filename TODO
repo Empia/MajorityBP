@@ -1,20 +1,31 @@
+main.scala.bprocesses.Invoker
+  * main.scala.bprocesses.dim_run Refactor
+  * main.scala.bprocesses.Invoke FIX THAT
+  * main.scala.bprocesses.isFront 
+
+
+
+
+
 
 
 
 <DB>
+  * ResAct blocks
+  * Invoke card(Reporter)
+  * Resources 
+  || Employees, Clients, Groups 
+  || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
+  * Databrick pointers
+  * scope ctx, bp
+  * Brick add space automaticly (if is needed)
+
+
+
   * Slick integration
   * DB Scheme
   * API End-Point
   * Angular app
-  * ResAct blocks
-  * Invoke card(Reporter)
-  
-  * Resources 
-  || Employees, Clients, Groups 
-  
-
-
-
   /** 2 Books read **/
     http://www.mulesoft.com/platform/soa
     http://www.activiti.org/userguide/index.html#bpmnSequenceFlow
@@ -24,33 +35,30 @@
 
 
 ____
-  * Flow tracker
-  * ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
-  * Explicit expand for space
-  * error handling [checker before invoke, brick error - though invoking]
-  /isOptionalLink/* checker for arguments and params [ ]
-  * Collection
-  * Condition
-  * * main.scala.utils.Space || Make support for frame [Addition]
+  *** Collection
+  *** Condition
+  
   * Create test
   * main.scala.maps.FrameLink ctx-ctx links
-  * * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
-  || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
-  * Databrick pointers
-  * scope ctx, bp
+  ** main.scala.utils.Space || Make support for frame elements
+  * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
+  ** [* CHAIN Invoke -> Process -> Process ]
 
 
 
 
-  * Input block while proc/context running(wait for input if it paused)
+  * Flow tracker method
+  ** ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
+  * error handling [checker before invoke, brick error - though invoking]
+  /isOptionalLink/* checker for arguments and params [ ]
+  ** Input block while proc/context running(wait for input if it paused)
   * Return in BProcess  [ Blocks that comes after process invoked ]
-  ?* Return in ProcElems [ Block that return blocks and arg&params ]
-  * * * [* CHAIN Invoke -> Process -> Process ]
+  * Return in ProcElems [ Block that return blocks and arg&params ] Brick expander adj by subbricks
   * Graph.js
 
 
-  * Collab & sharing
 /Final/
+  * Collab & sharing
   * Link block[Input, return, ...]
   * K-V Properties for resources
   * Observer block http://www.activiti.org/userguide/index.html#bpmnEvents

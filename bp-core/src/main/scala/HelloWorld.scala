@@ -24,16 +24,17 @@ object Main extends App {
         //new Constant[Int](1001),
         //new Constant[Int](1001),
         new Constant[Boolean](true),
+        new Constant[Boolean](true),
         new Constant[Boolean](false),
         new Brick(proc, 3),
-        new Space)
+        new Space(3, 1),new Space(3, 2))
         }
   val link = new BPLink(Option(proc.variety(0)), Option(proc.variety(1)), proc, true)      
   // getter for space
-  println(proc.variety(2).asInstanceOf[Brick].getSpace)
-  println(proc.fetchSpace(1)) // теперь можно спокойно работать с Пространством
+  println(proc.variety(3).asInstanceOf[Brick].getSpace)
+  println(proc.getSpaceByIndex(1)) // теперь можно спокойно работать с Пространством
   // pusher to space
-  var conta = proc.fetchSpace(1).get.container 
+  var conta = proc.getSpaceByIndex(1).get.container 
   conta = conta :+ new Constant[Boolean](false)
   println(conta.length)
   println(">>>>>>>")
@@ -41,13 +42,15 @@ object Main extends App {
   val sp_link = new BPLink(Option(proc.variety(0)), Option(conta(0)), proc)
   BPLinkSearcher.get_from(sp_link)
   BPLinkSearcher.get_to(sp_link)
+  // brick getspaces
+  println("getspacebyorder:")
+  println(proc.getSpaceByOrder(3))
+  println(proc.getSpacesByOrder(3).length)
+
   // subbrick
   // container
   // expand
   /*
-    * main.scala.bprocesses.dim_run Refactor
-  * main.scala.bprocesses.Invoke FIX THAT
-  * main.scala.bprocesses.isFront 
   * * SubBrick 
   * * Refactor old elements with Brick and SubBrick
   */
@@ -57,13 +60,27 @@ object Main extends App {
   // a -> b
   BPLinkSearcher.get_from(link)
   BPLinkSearcher.get_to(link)
-  // a -(m)> b
-  // c -(m)> b
 
+  println("Multiple Link:")
+  val z1 = new BPLink(Option(proc.variety(0)), Option(proc.variety(3)), proc, true)   
+  val z2 = new BPLink(Option(proc.variety(1)), Option(proc.variety(3)), proc, true)   
+  val z3 = new BPLink(Option(proc.variety(2)), Option(proc.variety(3)), proc, true)  
+  // a -(m)> d
+  BPLinkSearcher.get_from(z1)
+  // b -(m)> d
+  BPLinkSearcher.get_from(z2)
+  // c -(m)> d
+  BPLinkSearcher.get_from(z3)
+  // d > a,b,c
+  BPLinkSearcher.getFromObj(proc.variety(3), proc)  
   /*
    Argument
   Parameter
   */
+  // Update action
+  println(proc.variety(3))
+  println(proc.variety.update(3, proc.variety(0)))
+  println(proc.variety(3))
 }
 
 

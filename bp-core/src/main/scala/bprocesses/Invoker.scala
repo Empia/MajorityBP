@@ -15,7 +15,12 @@ object InvokeTracer {
   /**
    * Executor
    */
+  // Front Elements
+  // Space expanded elements
+  // Space container
+  // All filled in BPLogger and state update in BPStation
 
+  
   /**
    *  Checker methods goes here
    */
