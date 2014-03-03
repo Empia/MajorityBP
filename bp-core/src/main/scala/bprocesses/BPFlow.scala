@@ -3,13 +3,7 @@ package main.scala.bprocesses
 import main.scala.simple_parts.process._
 
 
-trait BPState {
-  var state = true
-  var step = 0
-  var space_step = 0
-  var status = "Stop"
 
-}
 trait BPFlow { this: BProcess =>
 /**
  * Process flow

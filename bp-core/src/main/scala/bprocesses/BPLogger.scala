@@ -7,9 +7,15 @@ import main.scala.simple_parts.process._
  */
 
 class BPLogger {
-  type Result = String
-  var logs: Array[Result] = Array.empty
-  def log(result: Result) = {
+  var logs: Array[BPLoggerResult] = Array.empty
+  def log(result: BPLoggerResult) = {
     logs = logs :+ result
   }
 }
+case class BPLoggerResult(
+  element: ProcElems, 
+  invoked: Boolean, 
+  expanded: Boolean, 
+  order: Int, 
+  space: Int, 
+  station: BPStation)

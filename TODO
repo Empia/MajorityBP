@@ -1,26 +1,26 @@
-main.scala.bprocesses.Invoker
-  * main.scala.bprocesses.dim_run Refactor
-  * main.scala.bprocesses.Invoke FIX THAT
-  * main.scala.bprocesses.isFront 
+** Invoke clean && run_dim && push to station, logger
+* extender
+* Collection
+* ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
+    scala>  trait Processor; class P1 extends Processor; class P2 extends Processor
 
+    scala> case class Event(val seq:Seq[Class[_ <: Processor]])
+    defined class Event
 
+    scala> Event(List(classOf[P1],classOf[P2]))
+    res4: Event = Event(List(class P1, class P2))
 
-
-
-
+    scala> res4.seq map { _.newInstance }
+    res6: Seq[Processor] = List(P1@43655bee, P2@337688d3)
+* Resources 
+|| Employees, Clients, Groups 
+** ResAct blocks
+** Databrick pointers
 
 
 <DB>
-  * ResAct blocks
-  * Invoke card(Reporter)
-  * Resources 
-  || Employees, Clients, Groups 
   || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
-  * Databrick pointers
   * scope ctx, bp
-  * Brick add space automaticly (if is needed)
-
-
 
   * Slick integration
   * DB Scheme
@@ -35,22 +35,19 @@ main.scala.bprocesses.Invoker
 
 
 ____
-  *** Collection
-  *** Condition
+
   
-  * Create test
   * main.scala.maps.FrameLink ctx-ctx links
   ** main.scala.utils.Space || Make support for frame elements
   * Assembly Function [ Provide access to triple (object, params, arguments)] 1. req(el, in), assebmly(frame), running
   ** [* CHAIN Invoke -> Process -> Process ]
 
 
+  * Brick add space automaticly (if is needed)
+  ** Condition
 
-
-  * Flow tracker method
-  ** ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
-  * error handling [checker before invoke, brick error - though invoking]
-  /isOptionalLink/* checker for arguments and params [ ]
+  ** error handling [checker before invoke, brick error - though invoking] /isOptionalLink/* checker for arguments and params [ ]
+  * Create test
   ** Input block while proc/context running(wait for input if it paused)
   * Return in BProcess  [ Blocks that comes after process invoked ]
   * Return in ProcElems [ Block that return blocks and arg&params ] Brick expander adj by subbricks

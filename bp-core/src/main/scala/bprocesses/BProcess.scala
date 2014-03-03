@@ -7,7 +7,7 @@ import main.scala.bprocesses.links._
 import main.scala.utils.links.BPLinkContainer
 import main.scala.utils.Space
 
-class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPState with BPFlow{
+class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPFlow {
 
 /**
  *  Field of process
@@ -17,6 +17,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPSt
   links = Array.empty[BPLink]
   val logger = new BPLogger
   val station = new BPStation(this)
+  val marker =  new BPMarker(this)
 
 /**
  *  Process collection methods

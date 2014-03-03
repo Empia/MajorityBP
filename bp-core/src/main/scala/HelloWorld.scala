@@ -81,6 +81,9 @@ object Main extends App {
   println(proc.variety(3))
   println(proc.variety.update(3, proc.variety(0)))
   println(proc.variety(3))
+
+  println("Running process")
+  InvokeTracer.run_proc(proc)
 }
 
 

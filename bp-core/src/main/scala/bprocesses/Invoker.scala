@@ -5,48 +5,64 @@ import main.scala.utils.Space
 /**
  * Ivoking process
  */
+class BPMarker(bp: BProcess) {
+  def start = {
+    // set initial value
+    bp.station.update_started(true)
+    next
+  }
+  def move = {
+    if (bp.station.step == bp.variety.length) {
+      end 
+    }
+    else 
+     { 
+     // station
+        val elem = bp.variety(bp.step)
+        if (elem.isFront) { 
+          front 
+        }
 
-object InvokeTracer {
-  /*
-   * Process instance
-   */
-  var runner: Option[BProcess] = None
+      bp.logger.log(elem, true, false, elem.order, elem.space, bp.station)
 
-  /**
-   * Executor
-   */
+      bp.station.update_step(bp.station.step + 1)
+      move
+     }
+  }
+  def end = {
+    // toStation end
+    bp.station.update_finished(true)
+
+    println("end")
+  }
+  def toStation = {}
+  def toLogger = {}
+
+
+/* Instructions */
   // Front Elements
+    def front(b: ProcElems) = b.invoke 
   // Space expanded elements
   // Space container
-  // All filled in BPLogger and state update in BPStation
-
-  
-  /**
-   *  Checker methods goes here
-   */
-  def run_init(proc: BProcess) = {
-    InvokeChecker.isInputed(proc)
-    for (b ← proc.variety) {
-      if (proc.state) {
-        if (InvokeChecker.isValid(b)) { // && isFront(b)) { //FIX THAT!!!!!!!!!!!!!!!!!
-          // also add to run_from method
-          println("Try invoking the: the: " + b);
+    def run_dim(dim: Space, proc: BProcess) {
+      for (b ← dim.container) {
+        if (proc.state) {
+          println("Invoking the: " + b);
           b.invoke
           println(proc.step)
           proc.step = proc.step + 1;
+        } else {
+          println(proc.step)
+          //proc.status = "Paused"
         }
-      } else {
-        println(proc.step)
-        proc.status = "Paused"
       }
     }
 
-    if (proc.state && proc.status != "Paused") {
-      proc.step = 0
-      proc.status = "Complete/Stop"
-    }
-  }
-
+// * Start from middle
+  // push elems
+  // check expanders(through BPLogger)
+  // start
+  /*
   def run_from(proc: BProcess) = {
     proc.status = "Stop"
     proc.resume
@@ -67,29 +83,9 @@ object InvokeTracer {
       proc.step = 0
       proc.status = "Complete/Stop"
     }
-  }
-  def run_proc(proc: BProcess) = {
-    runner = Option(proc)
-    if (proc.step > 0) {
-      run_from(proc)
-    } else {
-      run_init(proc)
-    }
-  }
-  /**
-   * Dimensions (Need to refactor)
-   */
-  def run_dim(dim: Space, proc: BProcess) {
-    for (b ← dim.container) {
-      if (proc.state) {
-        println("Invoking the: " + b);
-        b.invoke
-        println(proc.step)
-        proc.step = proc.step + 1;
-      } else {
-        println(proc.step)
-        proc.status = "Paused"
-      }
-    }
-  }
+  }*/
+}
+
+object InvokeTracer {
+  def run_proc(proc: BProcess) = proc.marker.start
 }
