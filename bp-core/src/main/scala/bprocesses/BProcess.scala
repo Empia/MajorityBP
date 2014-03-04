@@ -18,6 +18,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPFl
   val logger = new BPLogger
   val station = new BPStation(this)
   val marker =  new BPMarker(this)
+  val errors = new BPErrorCatcher(this)
 
 /**
  *  Process collection methods
