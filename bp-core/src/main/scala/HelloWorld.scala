@@ -85,6 +85,8 @@ object Main extends App {
   println("Running process")
   InvokeTracer.run_proc(proc)
   print(proc.getElemsLength)
+  println(ElementTracer.els)
+  println(ElementTracer.els.map(s => println(s.desc)))
 }
 
 

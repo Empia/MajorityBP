@@ -9,7 +9,7 @@ class BPMarker(bp: BProcess) {
   var counter = 0
   def start = {
     // set initial value
-    bp.station.update_started(true)
+    toStation(bp).update_started(true)
     move
   }
   def move:Boolean = {
@@ -20,31 +20,33 @@ class BPMarker(bp: BProcess) {
     else 
      { 
      // station
-        val elem = bp.variety(bp.station.step)
+        val elem = bp.variety(toStation(bp).step)
         if (true){//elem.isFront) { 
           front(elem) 
         }
 
-      bp.logger.log(BPLoggerResult(elem, true, false, 1, 0, bp.station)) // (elem, true, false, elem.order, elem.space, bp.station)
+      toLogger(bp, BPLoggerResult(elem, true, false, 1, 0, toStation(bp))) // (elem, true, false, elem.order, elem.space, bp.station)
 
-      bp.station.update_step(bp.station.step + 1)
+      toStation(bp).update_step(bp.station.step + 1)
       counter = counter + 1
       move
      }
   }
+  
   def end = {
     // toStation end
-    bp.station.update_finished(true)
+    toStation(bp).update_finished(true)
 
     println("end")
   }
+
   def moveToSpace = {}
   def moveToExpand = {}
   def moveUpFront = {}
   // Push Info
-  
-  def toStation = {}
-  def toLogger = {}
+
+  def toStation(bp: BProcess): BPStation = { bp.station }
+  def toLogger(bp: BProcess, result: BPLoggerResult) = bp.logger.log(result)
 
 
 /* Instructions */
