@@ -38,6 +38,11 @@ class BPMarker(bp: BProcess) {
 
     println("end")
   }
+  def moveToSpace = {}
+  def moveToExpand = {}
+  def moveUpFront = {}
+  // Push Info
+  
   def toStation = {}
   def toLogger = {}
 

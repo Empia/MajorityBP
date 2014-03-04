@@ -84,6 +84,7 @@ object Main extends App {
 
   println("Running process")
   InvokeTracer.run_proc(proc)
+  print(proc.getElemsLength)
 }
 
 

@@ -30,6 +30,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPFl
   def inputs = variety.collect { case inputs: InputPlaceholder ⇒ inputs }
   def isContain(el: ProcElems) = variety contains el
 
+  def getElemsLength = variety.length - variety.collect { case space: Space => space }.length
   def getSpaceByIndex(index: Int) = variety.collect { 
     case space: Space => space }.find (space => space.index == index)
   def getSpaceByOrder(order: Int) = variety.collect { 

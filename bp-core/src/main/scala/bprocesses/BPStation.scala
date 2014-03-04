@@ -5,9 +5,11 @@ class BPStation(val bp: BProcess) {
   var state = true
   var step = 0
   var space = 0
-  var space_step = 0
+  var space_step = Array.empty[Int]
   var started: Boolean = false
   var finished: Boolean = false
+  var inspace: Boolean = false
+  var expanding: Boolean = false
   var paused: Boolean = false
 
  /**
