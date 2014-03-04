@@ -6,13 +6,14 @@ import main.scala.utils.Space
  * Ivoking process
  */
 class BPMarker(bp: BProcess) {
+  var counter = 0
   def start = {
     // set initial value
     bp.station.update_started(true)
     move
   }
   def move:Boolean = {
-    if (bp.station.step == bp.variety.length) {
+    if (counter > 10) { // bp.station.step > bp.variety.length КОСЯК
       end 
       true
     }
@@ -27,6 +28,7 @@ class BPMarker(bp: BProcess) {
       bp.logger.log(BPLoggerResult(elem, true, false, 1, 0, bp.station)) // (elem, true, false, elem.order, elem.space, bp.station)
 
       bp.station.update_step(bp.station.step + 1)
+      counter = counter + 1
       move
      }
   }
