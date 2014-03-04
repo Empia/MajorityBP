@@ -10,6 +10,9 @@ class BPStation(val bp: BProcess) {
   var finished: Boolean = false
   var paused: Boolean = false
 
+ /**
+ * Process information
+ */
   def isStarted:Boolean = started
   def isRunned:Boolean  = started && !(finished && paused)
   def isPaused:Boolean  = paused

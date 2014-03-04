@@ -5,7 +5,7 @@ import main.scala.bprocesses.InvokeTracer
 class Stoper extends ProcElems {
   override def invoke {
     println("invoked stoper")
-    val proc = InvokeTracer.runner
-    proc.get.stop(this)
+    //val proc = InvokeTracer.runner
+    //proc.get.stop(this)
   }
 }

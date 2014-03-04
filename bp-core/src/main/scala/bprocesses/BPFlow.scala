@@ -9,12 +9,12 @@ trait BPFlow { this: BProcess =>
  * Process flow
  */
   def resume = {
-    state = true
+    station.state = true
   }
 
   def stop(b: ProcElems) = {
     if (b.getClass.getSimpleName == "Stopper") {
-      state = false
+      station.state = false
     }
   }
 

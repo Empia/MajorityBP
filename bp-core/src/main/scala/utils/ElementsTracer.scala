@@ -1,6 +1,6 @@
 package main.scala.utils
 
-trait ElementTracer {
+object ElementTracer {
   // block
   // brick
   // subbrick

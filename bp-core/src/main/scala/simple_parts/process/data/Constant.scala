@@ -5,7 +5,8 @@ import main.scala.bprocesses.InvokeTracer
 class Constant[T](value: T) extends ProcElems {
 
   override def invoke {
-    InvokeTracer.runner.get.logger.log("invoked const")
+    //InvokeTracer.runner.get.logger.log("invoked const")
+    println("invoked const")
   }
 
   override def toString = s"Constant $value"

@@ -12,12 +12,13 @@
 
     scala> res4.seq map { _.newInstance }
     res6: Seq[Processor] = List(P1@43655bee, P2@337688d3)
+
+
+
 * Resources 
 || Employees, Clients, Groups 
 ** ResAct blocks
 ** Databrick pointers
-
-
 <DB>
   || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
   * scope ctx, bp

@@ -61,18 +61,7 @@ class BProcess(resource: List[String]) extends BPLinkContainer[BPLink] with BPFl
     pushit(f)
   }
 
-/**
- * Process information
- */
- def isCompleted = {
-   step >= variety.length 
- }
- def isStarted = {
-   step > variety.length 
- }
- def isPaused = {
-   state == false && step != 0
- }
+
 
 /**
  * Process initialization

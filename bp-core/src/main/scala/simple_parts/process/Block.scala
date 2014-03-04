@@ -17,7 +17,7 @@ class Block(b_type: String, title: String, val expander: Boolean = false) extend
   override def toString = s"Block: $title"
 
   override def invoke {
-    InvokeTracer.runner.get.logger.log("invoked block")
+    println("invoked block")
   }
 
   def expand(obj: ProcElems) = {

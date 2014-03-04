@@ -13,7 +13,7 @@ class Brick(proc: BProcess, order: Int) extends ProcElems {
 
   override def toString = s"Brick:"
   def invoke {
-    InvokeTracer.runner.get.logger.log("invoked brick")
+    println("invoked brick")
   }
   def getSpace = {
     proc.getSpaceByOrder(order).head

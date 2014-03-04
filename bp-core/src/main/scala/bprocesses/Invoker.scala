@@ -9,21 +9,22 @@ class BPMarker(bp: BProcess) {
   def start = {
     // set initial value
     bp.station.update_started(true)
-    next
+    move
   }
-  def move = {
+  def move:Boolean = {
     if (bp.station.step == bp.variety.length) {
       end 
+      true
     }
     else 
      { 
      // station
-        val elem = bp.variety(bp.step)
-        if (elem.isFront) { 
-          front 
+        val elem = bp.variety(bp.station.step)
+        if (true){//elem.isFront) { 
+          front(elem) 
         }
 
-      bp.logger.log(elem, true, false, elem.order, elem.space, bp.station)
+      bp.logger.log(BPLoggerResult(elem, true, false, 1, 0, bp.station)) // (elem, true, false, elem.order, elem.space, bp.station)
 
       bp.station.update_step(bp.station.step + 1)
       move
@@ -46,13 +47,13 @@ class BPMarker(bp: BProcess) {
   // Space container
     def run_dim(dim: Space, proc: BProcess) {
       for (b ← dim.container) {
-        if (proc.state) {
+        if (proc.station.state) {
           println("Invoking the: " + b);
           b.invoke
-          println(proc.step)
-          proc.step = proc.step + 1;
+          println(proc.station.step)
+          //proc.step = proc.step + 1;
         } else {
-          println(proc.step)
+          println(proc.station.step)
           //proc.status = "Paused"
         }
       }
