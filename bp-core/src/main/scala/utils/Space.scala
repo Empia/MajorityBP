@@ -47,6 +47,14 @@ override def init { }
   def exps_push(f: ⇒ Array[ProcElems]) = {
     exp_pushin(f)
   }
+  def doExpandObj(old: ProcElems, obj: ProcElems) = {
+    expands.update(old, obj)
+    // link_update
+  }
+  def doExpandInd(in: Int, obj: ProcElems) = {
+    expands.update(expands(in), obj)
+    // link_update
+  } 
 
 // runer
   def invoke = {
