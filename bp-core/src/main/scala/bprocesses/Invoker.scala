@@ -12,13 +12,14 @@ class BPMarker(bp: BProcess) {
     toStation(bp).update_started(true)
     move
   }
-  def move:Boolean = {
-    if (counter > 10) { // bp.station.step > bp.variety.length КОСЯК
+  def move:Unit = {
+    if (counter > 10) // bp.station.step > bp.variety.length КОСЯК
+    { 
       end 
       true
     }
     else 
-     { 
+    { 
      // station
         val elem = bp.variety(toStation(bp).step)
         if (true){//elem.isFront) { 
@@ -29,8 +30,13 @@ class BPMarker(bp: BProcess) {
 
       toStation(bp).update_step(bp.station.step + 1)
       counter = counter + 1
-      move
-     }
+      if (isInFront) { 
+        println("station")
+        println(station.isInFront)
+        move 
+        
+      }
+    }
   }
   
   def end = {
@@ -39,12 +45,43 @@ class BPMarker(bp: BProcess) {
 
     println("end")
   }
+  // Moving of marker
+  def moveToSpace = { 
+    station.inSpace(true)
 
-  def moveToSpace = {}
-  def moveToExpand = {}
-  def moveUpFront = {}
+  }
+  def moveToExpand = {
+    station.inExpand(true)
+    station.update_expand_step(0)
+  }
+  def moveToContainer = {
+    station.inContainer(true)
+    station.update_container_step(0)
+  }
+  // up
+  def moveUpFront = {
+    station.inExpand(false)
+    station.inContainer(false)
+    
+    station.flush_container_step
+    station.flush_expand_step
+  }
+  def moveUpFrontSpace = {
+    station.inSpace(true)
+
+    station.inExpand(false)
+    station.inContainer(false)
+    
+    station.flush_container_step
+    station.flush_expand_step
+  }
+  // exec
+  def invokeExpand = {}
+  def invokeContainer = {}
+
   // Push Info
-
+  val station = bp.station
+  def isInFront: Boolean = true// station.isInFront
   def toStation(bp: BProcess): BPStation = { bp.station }
   def toLogger(bp: BProcess, result: BPLoggerResult) = bp.logger.log(result)
 

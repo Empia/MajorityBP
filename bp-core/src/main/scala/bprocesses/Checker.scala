@@ -3,6 +3,16 @@ package main.scala.bprocesses
 import main.scala.simple_parts.process._
 import main.scala.bprocesses.links._
 
+
+/* BEFORE
+on elements param link_check:Boolean
+get all for true
+call method and if objects present proc are good
+////////////
+    AFTER
+    proc.errors.reg(...)
+*/
+
 object InvokeChecker {
   /*
    * Argument & Parameters Validation

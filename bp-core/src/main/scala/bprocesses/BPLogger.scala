@@ -14,7 +14,10 @@ class BPLogger {
 }
 class BPErrorCatcher(bp: BProcess) {
   var errors: Array[BPError] = Array.empty
-  def reg(error: BPError) = errors = errors :+ error
+  def reg(error: BPError) { 
+    errors = errors :+ error 
+    bp.station.state = false
+  }
   def flush = errors = Array.empty
 }
 case class BPError(el: ProcElems, error_type: String, desc: String)
