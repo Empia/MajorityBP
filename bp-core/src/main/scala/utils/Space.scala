@@ -10,16 +10,12 @@ class Space(val order: Int, val index: Int) // increment index
 private var state = true
 var step = 0
 
- 
 // init
-override def init {
-
-}
+override def init { }
 
 // subbricks
   var subbricks = Array.empty[SubBrick]
-      // add SubBrick = argument, parameter [fetch arg outside space, and betwen space]
-      // SubBrick return results & return result
+
   def sb_pushit(target: Array[SubBrick]) {
     container = container ++ target
   }
@@ -32,7 +28,6 @@ override def init {
 // container
   var container: Array[ProcElems] = Array.empty
 
-
   def cont_pushin(target: Array[ProcElems]) {
     container = container ++ target
   }
@@ -42,10 +37,16 @@ override def init {
   }
 
 
-
 // expandings
-  // by default return last element of container(withoud call on it return)
-  
+  var expands: Array[ProcElems] = Array.empty
+
+  def exp_pushin(target: Array[ProcElems]) {
+    expands = expands ++ target
+  }
+
+  def exps_push(f: ⇒ Array[ProcElems]) = {
+    exp_pushin(f)
+  }
 
 // runer
   def invoke = {

@@ -1,24 +1,10 @@
-** Invoke clean && run_dim && push to station, logger
-* extender
 * Collection
-* ElementTracer при defining классов для различных элементов, регистрировать их имя и ссылку в общий хэш
-    scala>  trait Processor; class P1 extends Processor; class P2 extends Processor
 
-    scala> case class Event(val seq:Seq[Class[_ <: Processor]])
-    defined class Event
-
-    scala> Event(List(classOf[P1],classOf[P2]))
-    res4: Event = Event(List(class P1, class P2))
-
-    scala> res4.seq map { _.newInstance }
-    res6: Seq[Processor] = List(P1@43655bee, P2@337688d3)
 
 * Resources 
 || Employees, Clients, Groups 
 ** ResAct blocks
 ** Databrick pointers
-
-
 <DB>
   || Process owning, viewers, access // by owning tables Employees/Clients/Firm + Groups assigns
   * scope ctx, bp

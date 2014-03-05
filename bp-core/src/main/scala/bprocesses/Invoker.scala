@@ -6,14 +6,13 @@ import main.scala.utils.Space
  * Ivoking process
  */
 class BPMarker(bp: BProcess) {
-  var counter = 0
   def start = {
     // set initial value
     toStation(bp).update_started(true)
     move
   }
   def move:Unit = {
-    if (counter > 10) // bp.station.step > bp.variety.length КОСЯК
+    if (bp.station.step > bp.getElemsLength) // bp.station.step > bp.variety.length КОСЯК
     { 
       end 
       true
@@ -27,9 +26,8 @@ class BPMarker(bp: BProcess) {
         }
 
       toLogger(bp, BPLoggerResult(elem, true, false, 1, 0, toStation(bp))) // (elem, true, false, elem.order, elem.space, bp.station)
-
       toStation(bp).update_step(bp.station.step + 1)
-      counter = counter + 1
+
       if (isInFront) { 
         println("station")
         println(station.isInFront)
@@ -47,6 +45,7 @@ class BPMarker(bp: BProcess) {
   }
   // Moving of marker
   def moveToSpace = { 
+    station.update_space(station.space + 1)
     station.inSpace(true)
 
   }
@@ -60,11 +59,18 @@ class BPMarker(bp: BProcess) {
   }
   // up
   def moveUpFront = {
-    station.inExpand(false)
-    station.inContainer(false)
-    
-    station.flush_container_step
-    station.flush_expand_step
+      if ((station.container_step.length == 1) && (station.expand_step.length == 1)) 
+      {
+        station.inExpand(false)
+        station.inContainer(false)
+        
+        station.flush_container_step
+        station.flush_expand_step
+        station.update_space(station.space - 1) } 
+      else 
+      { 
+        moveUpFrontSpace 
+      }
   }
   def moveUpFrontSpace = {
     station.inSpace(true)
@@ -76,8 +82,12 @@ class BPMarker(bp: BProcess) {
     station.flush_expand_step
   }
   // exec
-  def invokeExpand = {}
-  def invokeContainer = {}
+  def invokeExpand = {
+    bp.getSpaceByIndex(station.space).get.expands.map(ex => ex.invoke) // доделать.get
+  }
+  def invokeContainer = {
+    bp.getSpaceByIndex(station.space).get.container.map(ex => ex.invoke)
+  }
 
   // Push Info
   val station = bp.station

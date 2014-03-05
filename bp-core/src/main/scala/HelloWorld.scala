@@ -87,6 +87,7 @@ object Main extends App {
   print(proc.getElemsLength)
   println(ElementTracer.els)
   ElementTracer.els.map(s => println(s.desc))
+  println(proc.logger.logs)
 }
 
 

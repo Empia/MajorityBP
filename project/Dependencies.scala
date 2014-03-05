@@ -16,6 +16,7 @@ object Dependencies {
   //val json4s-n        = "org.json4s"                %%  "json4s-native"         % "3.2.6"
   //val json4s-j        = "org.json4s"                %%  "json4s-jackson"        % "3.2.6"
   val postgres        = "postgresql"                %   "postgresql"            % "9.1-901.jdbc4"
+  val mongodb         = "org.mongodb"               %% "casbah"                 % "2.7.0-RC0"
 
   val sprayJson       = "io.spray"                  %%  "spray-json"            % "1.2.5"
   val sprayJsonLenses = "net.virtual-void"          %%  "json-lenses"           % "0.5.3"

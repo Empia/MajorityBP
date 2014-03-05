@@ -23,7 +23,7 @@ object Build extends Build {
     .settings(revolverSettings: _*)
     .settings(
       libraryDependencies ++=
-        List(akkaActor, sprayCan, scalatest, sprayClient, sprayRouting, hdrHistogram, sprayJson)) 
+        List(akkaActor, sprayCan, scalatest, sprayClient, mongodb, sprayRouting, hdrHistogram, sprayJson)) 
         //compile(akkaActor, sprayCan, sprayClient, sprayRouting) ++
         //provided(logback) ++
         //test(scalatest, akkaTestKit, sprayTestkit, akkaSlf4j, logback))
