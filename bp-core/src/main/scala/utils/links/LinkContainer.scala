@@ -19,12 +19,12 @@ trait BPLinkContainer[T] extends LinkContainer { self =>
     val t1 = links.collect { case link: T ⇒ link.from == old }
     val t2 = links.collect { case link: T ⇒ link.to   == old }
     if (t1.length > 0) {
-      t1.foreach(link => links.update(link, new Link(new, link.from)))
+      t1.foreach(link => links.update(link, new T(new, link.from)))
       //links.update(t1, new Link(new, t1.to))
     }
     else if (t2.length > 0)
     {
-      t2.foreach(link => links.update(link, new Link(link.from, new)))
+      t2.foreach(link => links.update(link, new T(link.from, new)))
       //links.update(t2, new Link(t2.from, new))
     }
 

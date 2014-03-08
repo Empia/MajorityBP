@@ -23,7 +23,7 @@ class ProcInvoker extends CtxElems {
     if (input != None) { // != None
       println("##############")
       println(input)
-      proc.get.fill(input)
+      proc.get.fill(input) // Pointed
     }
 
     if (InvokeChecker.isInputed(proc.get)) {

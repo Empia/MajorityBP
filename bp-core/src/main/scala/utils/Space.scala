@@ -13,6 +13,32 @@ var step = 0
 // init
 override def init { }
 
+// Searcher
+def seachObjById(id: Int) = {
+  val objects = subbricks ++ container ++ expands
+  objects.find(obj => obj.id == id)
+}
+def levelOfObject(obj: ProcElems) = {
+  if (subbricks.contains(obj)) {
+    "SubBricks"
+  else if (container.contains(obj)) {
+    "Container"
+  } elseif (expands.contains(obj)) {
+    "Expands"
+  }
+  None
+  }
+}
+// Element control
+def updateElem(old, newone) = {
+  levelOfObject(old) match {
+    case "SubBricks" => subbrics.update(old, newone)
+    case "Container" => container.update(old, newone)
+    case "Expands"   => expands.update(old, newone)
+    case _           => None
+  }
+}
+
 // subbricks
   var subbricks = Array.empty[SubBrick]
 
